@@ -98,7 +98,6 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
   public String getRestrictToCountryCode() {
     return restrictToCountryCode;
   }
-
   
   /**
    * Restricts the results to the given country. 
@@ -116,7 +115,7 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
   
   /**
    * An IETF format language code (such as es for Spanish or pt-BR for Brazilian Portuguese); if this is omitted a code of en (English) will be assumed
-   * @param language
+   * @param language the language code
    */
   public void setLanguage(String language) {
     this.language = language;
@@ -130,7 +129,7 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
   
   /**
    * How many results should be returned. Default is 10.
-   * @param limit
+   * @param limit maximum number of results.
    */
   public void setLimit(Integer limit) {
     this.limit = limit;
@@ -144,7 +143,7 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
   
   /**
    * An integer from 1-10 only results with at least this confidence will be returned.
-   * @param minConfidence
+   * @param minConfidence minimum confidence that the result matches
    */
   public void setMinConfidence(Integer minConfidence) {
     this.minConfidence = minConfidence;
@@ -158,7 +157,7 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
   
   /**
    * If set to true the results will not contain annotations.
-   * @param noAnnotations
+   * @param noAnnotations If true no annotations are included. Defaults to false.
    */
   public void setNoAnnotations(boolean noAnnotations) {
     this.noAnnotations = noAnnotations;
@@ -171,7 +170,7 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
 
   /**
    * If set to true the results will not be deduplicated.
-   * @param noDedupe
+   * @param noDedupe If true the result will not be deduplicated. Defaults to false.
    */
   public void setNoDedupe(boolean noDedupe) {
     this.noDedupe = noDedupe;
@@ -185,7 +184,7 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
   
   /**
    * If set to true pretty printing of the response payload is enabled.
-   * @param pretty
+   * @param pretty If true the response will be pretty formatted.
    */
   public void setPretty(boolean pretty) {
     this.pretty = pretty;
@@ -193,10 +192,10 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
   
   /**
    * Provides the geocoder with a hint to the region that the query resides in. This value will help the geocoder but will not restrict the possible results to the supplied region.
-   * @param northEastLat
-   * @param northEastLng
-   * @param southWestLat
-   * @param southWestLng
+   * @param northEastLat north east latitude
+   * @param northEastLng north east longitude
+   * @param southWestLat south west latitude
+   * @param southWestLng south west longitude
    */
   public void setBounds(Double northEastLat, Double northEastLng, Double southWestLat, Double southWestLng) {
     bounds = new JOpenCageBounds();
@@ -215,7 +214,7 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
   
   /**
    * If you use the query part constructor this String separates the query parts from each other. Defaults to a colon.
-   * @param queryPartSeparator
+   * @param queryPartSeparator the query part separator. Defaults to a colon.
    */
   public void setQueryPartSeparator(String queryPartSeparator) {
     this.queryPartSeparator = queryPartSeparator;

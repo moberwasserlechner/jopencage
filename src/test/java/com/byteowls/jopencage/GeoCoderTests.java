@@ -22,6 +22,7 @@ public class GeoCoderTests {
 //    this.jOpenCageGeocoder.setHttpsEnabled(true);
   }
   
+  @Test
   public void testWildConfigured() {
     JOpenCageForwardRequest request = new JOpenCageForwardRequest("Graz");
     request.setMinConfidence(1);

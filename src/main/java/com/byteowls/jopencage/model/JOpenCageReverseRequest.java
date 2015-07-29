@@ -54,7 +54,7 @@ public class JOpenCageReverseRequest extends JOpenCageRequest {
 
   /**
    * If set to true pretty printing of the response payload is enabled.
-   * @param pretty
+   * @param pretty pretty flag if true the response is pretty formatted
    */
   public void setPretty(boolean pretty) {
     this.pretty = pretty;
