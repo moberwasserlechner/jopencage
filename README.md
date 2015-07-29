@@ -2,6 +2,8 @@
 
 This api provides a java client to the OpenCage geocoding service. http://geocoder.opencagedata.com/api.html
 
+[ ![Download](https://api.bintray.com/packages/moberwasserlechner/maven/jopencage/images/download.svg) ](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion)
+
 # API Key
 Get your free opencage api key here: https://developer.opencagedata.com/
 

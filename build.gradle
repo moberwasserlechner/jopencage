@@ -68,7 +68,7 @@ bintray {
   // - OR -
   publications = ['mavenJava'] //When uploading Maven-based publication files
 
-  dryRun = true //Whether to run this as dry-run, without deploying
+  dryRun = false //Whether to run this as dry-run, without deploying
   publish = false //If version should be auto published after an upload
   
   // Package configuration. The plugin will use the repo and name properties to check if the package already exists. 
