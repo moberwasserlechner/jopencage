@@ -14,6 +14,10 @@ public class JOpenCageResponse {
   private JOpenCageRate rate; 
   private List<JOpenCageResult> results;
   private JOpenCageStatus status;
+  
+  @JsonProperty("stay_informed")
+  private JOpenCageStayInformed stayInformed;
+  
   private String thanks;
   private JOpenCageTimestamp timestamp;
   @JsonProperty("total_results")
