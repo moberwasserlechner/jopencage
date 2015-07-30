@@ -13,7 +13,7 @@ This api provides a java client to the OpenCage geocoding service. http://geocod
 Repository
 
     <repositories>
-      <!-- ... other dependency elements ... -->
+      <!-- ... other repository elements ... -->
       <repository>
         <snapshots>
           <enabled>false</enabled>
@@ -40,7 +40,7 @@ Dependency
 
 Repository
 
-    //
+
     repositories {
       jcenter()
     }
