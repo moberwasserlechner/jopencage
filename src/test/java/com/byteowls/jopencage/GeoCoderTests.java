@@ -30,6 +30,7 @@ public class GeoCoderTests {
 //    request.setRestrictToCountryCode("at");
     request.setNoAnnotations(false);
     request.setNoDedupe(true);
+    request.setSubkey("test");
     
     JOpenCageResponse response = jOpenCageGeocoder.forward(request);
     Assert.assertNotNull(response);

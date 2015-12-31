@@ -21,7 +21,7 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
   private boolean noAnnotations;
   private boolean noDedupe;
   private boolean pretty;
-//  private String query;
+  private String subkey;
   private List<String> queryParts = new ArrayList<>();
   private String queryPartSeparator = ",";
   
@@ -80,6 +80,9 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
     }
     if (pretty) {
       parameter.put("pretty", "1");
+    }
+    if (subkey != null) {
+      parameter.put("subkey", subkey);
     }
     return parameter;
   }
@@ -190,6 +193,19 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
     this.pretty = pretty;
   }
   
+  public String getSubkey() {
+    return subkey;
+  }
+
+  /**
+   * A unique id of your choosing (can contain only A-Za-z0-9 and with a maximum length of 20 characters). 
+   * The subkey is ignored by the geocoder but can be used for reporting. Not currently in use, but coming soon.
+   * @param subkey
+   */
+  public void setSubkey(String subkey) {
+    this.subkey = subkey;
+  }
+
   /**
    * Provides the geocoder with a hint to the region that the query resides in. This value will help the geocoder but will not restrict the possible results to the supplied region.
    * @param northEastLat north east latitude
