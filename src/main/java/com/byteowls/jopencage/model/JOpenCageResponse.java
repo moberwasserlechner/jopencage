@@ -10,6 +10,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(Include.NON_NULL)
 public class JOpenCageResponse {
   
+  private String documentation;
+  
   private List<JOpenCageLicence> licenses;
   private JOpenCageRate rate; 
   private List<JOpenCageResult> results;
@@ -23,6 +25,10 @@ public class JOpenCageResponse {
   @JsonProperty("total_results")
   private int totalResults;
   
+  public String getDocumentation() {
+    return documentation;
+  }
+
   public List<JOpenCageLicence> getLicenses() {
     return licenses;
   }
