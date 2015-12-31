@@ -56,7 +56,7 @@ Dependency
     dependencies {
       compile ("com.byteowls:jopencage:1.0.0")
     }
-	
+
 ### Example
 
 Forward
@@ -82,7 +82,6 @@ Reverse
     
     JOpenCageResponse response = jOpenCageGeocoder.reverse(request);
 
-	
 # Libraries
 
 * JDK 7+
