@@ -31,7 +31,7 @@ Dependency
       <dependency>
         <groupId>com.byteowls</groupId>
         <artifactId>jopencage</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
       </dependency>
     </dependencies>
 
@@ -54,9 +54,9 @@ Repository
 Dependency
 
     dependencies {
-      compile ("com.byteowls:jopencage:1.0.0")
+      compile ("com.byteowls:jopencage:1.0.1")
     }
-	
+
 ### Example
 
 Forward
@@ -82,7 +82,6 @@ Reverse
     
     JOpenCageResponse response = jOpenCageGeocoder.reverse(request);
 
-	
 # Libraries
 
 * JDK 7+

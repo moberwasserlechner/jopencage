@@ -15,14 +15,14 @@ targetCompatibility = JavaVersion.VERSION_1_7
 
 dependencies {
   compile ("org.slf4j:slf4j-api:${slf4jVersion}")
-	compile ("org.apache.httpcomponents:httpclient:${httpClientVersion}")
-	compile ("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
-	compile ("com.fasterxml.jackson.core:jackson-core:${jacksonVersion}")
-	compile ("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}")
+  compile ("org.apache.httpcomponents:httpclient:${httpClientVersion}")
+  compile ("com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}")
+  compile ("com.fasterxml.jackson.core:jackson-core:${jacksonVersion}")
+  compile ("com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}")
 
-	// Tests
-	testCompile ("junit:junit:4.12")
-	testRuntime ("org.slf4j:slf4j-simple:${slf4jVersion}")
+  // Tests
+  testCompile ("junit:junit:4.12")
+  testRuntime ("org.slf4j:slf4j-simple:${slf4jVersion}")
 }
 
 // custom tasks for creating source/javadoc jars
@@ -94,5 +94,5 @@ bintray {
 }
 
 task wrapper(type: Wrapper) {
-  gradleVersion = '2.5'
+  gradleVersion = '2.10'
 }

@@ -21,7 +21,6 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
   private boolean noAnnotations;
   private boolean noDedupe;
   private boolean pretty;
-//  private String query;
   private List<String> queryParts = new ArrayList<>();
   private String queryPartSeparator = ",";
   
@@ -190,6 +189,7 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
     this.pretty = pretty;
   }
   
+
   /**
    * Provides the geocoder with a hint to the region that the query resides in. This value will help the geocoder but will not restrict the possible results to the supplied region.
    * @param northEastLat north east latitude
