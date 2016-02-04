@@ -1,5 +1,5 @@
 plugins {
-  id "com.jfrog.bintray" version "1.2"
+  id "com.jfrog.bintray" version "1.5"
 }
 
 apply plugin: 'java'
@@ -78,9 +78,9 @@ bintray {
     name = 'jopencage'
     //userOrg = 'byteowls' //An optional organization name when the repo belongs to one of the user's orgs
     desc = 'OpenCage geocoding client for Java'
-    websiteUrl = 'https://github.com/byteowls/jopencage'
-    issueTrackerUrl = 'https://github.com/byteowls/jopencage/issues'
-    vcsUrl = 'https://github.com/byteowls/jopencage.git'
+    websiteUrl = 'https://github.com/moberwasserlechner/jopencage'
+    issueTrackerUrl = 'https://github.com/moberwasserlechner/jopencage/issues'
+    vcsUrl = 'https://github.com/moberwasserlechner/jopencage.git'
     licenses = ['Apache-2.0']
     labels = ['geocoding', 'opencage', 'openstreetmap']
     publicDownloadNumbers = true
