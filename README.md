@@ -1,4 +1,4 @@
-# Introduction
+# JOpenCage [![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/jopencage.svg)](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion)
 
 This api provides a java client to the OpenCage geocoding service. http://geocoder.opencagedata.com/api.html
 
@@ -6,7 +6,7 @@ This api provides a java client to the OpenCage geocoding service. http://geocod
 
 ### Download
 
-[ ![Download](https://api.bintray.com/packages/moberwasserlechner/maven/jopencage/images/download.svg) ](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion)
+[![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/jopencage.svg)](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion)
 
 ### Maven
 
