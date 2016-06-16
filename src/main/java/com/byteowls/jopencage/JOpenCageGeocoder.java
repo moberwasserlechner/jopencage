@@ -6,6 +6,7 @@ import java.net.URISyntaxException;
 import java.util.Map.Entry;
 
 import org.apache.http.HttpEntity;
+import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.ResponseHandler;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIBuilder;
@@ -93,6 +94,27 @@ public class JOpenCageGeocoder {
         };
 
         return httpclient.execute(getRequest, rh);
+      } catch (HttpResponseException e) {
+        switch (e.getStatusCode()) {
+          case 400:
+            LOGGER.error("Invalid request (bad request; a required parameter is missing)!");
+            break;
+          case 402:
+            LOGGER.error("Valid request but quota exceeded (payment required)!");
+            break;
+          case 403:
+            LOGGER.error("Invalid or missing api key!");
+            break;
+          case 404:
+            LOGGER.error("Invalid API endpoint!");
+            break;
+          case 408:
+            LOGGER.error("Timeout; you can try again!");
+            break;
+          case 410:
+            LOGGER.error("Request too long!");
+            break;
+        }
       } catch (IOException e) {
         LOGGER.error("", e);
       }
