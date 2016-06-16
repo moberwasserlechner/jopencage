@@ -31,7 +31,7 @@ Dependency
       <dependency>
         <groupId>com.byteowls</groupId>
         <artifactId>jopencage</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
       </dependency>
     </dependencies>
 
@@ -54,7 +54,7 @@ Repository
 Dependency
 
     dependencies {
-      compile ("com.byteowls:jopencage:1.0.1")
+      compile ("com.byteowls:jopencage:1.0.2")
     }
 
 ### Example
@@ -97,3 +97,11 @@ Please create a issue or a pull request. https://github.com/byteowls/jopencage/i
 For running the tests you have to use your own OpenCage API Key.
 
 * OPENCAGE\_API\_KEY ... Provide your own opencage api key using env variables. e.g. -DOPENCAGE\_API\_KEY=YourKey
+
+## License
+
+Apache 2.0. Please see [LICENSE](https://github.com/moberwasserlechner/jopencage/blob/develop/LICENSE).
+
+## Change Log
+
+Please see [CHANGELOG](https://github.com/moberwasserlechner/jopencage/blob/develop/CHANGELOG.md).
