@@ -19,8 +19,8 @@ import com.byteowls.jopencage.model.JOpenCageForwardRequest;
 import com.byteowls.jopencage.model.JOpenCageRequest;
 import com.byteowls.jopencage.model.JOpenCageResponse;
 import com.byteowls.jopencage.model.JOpenCageReverseRequest;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
 
 
 public class JOpenCageGeocoder {
@@ -87,6 +87,7 @@ public class JOpenCageGeocoder {
           @Override
           public JOpenCageResponse handleEntity(HttpEntity entity) throws IOException {
             ObjectMapper mapper = new ObjectMapper();
+            mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             return mapper.readValue(entity.getContent(), JOpenCageResponse.class);
           }
         };
