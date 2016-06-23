@@ -1,4 +1,4 @@
-# JOpenCage [![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/jopencage.svg)](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion)
+# JOpenCage [![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/jopencage.svg)](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion)[![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N8VS2P9233NJQ)
 
 This api provides a java client to the OpenCage geocoding service. http://geocoder.opencagedata.com/api.html
 
