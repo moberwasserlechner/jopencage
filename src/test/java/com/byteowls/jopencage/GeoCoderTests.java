@@ -12,13 +12,16 @@ import com.byteowls.jopencage.model.JOpenCageReverseRequest;
 
 public class GeoCoderTests {
   
-  private final static String API_KEY = System.getProperty("OPENCAGE_API_KEY");
-  
   private JOpenCageGeocoder jOpenCageGeocoder;
   
   @Before
   public void setup() {
-    this.jOpenCageGeocoder = new JOpenCageGeocoder(API_KEY);
+    String apiKey = System.getProperty("OPENCAGE_API_KEY");
+    if (apiKey == null) {
+      apiKey = System.getenv("OPENCAGE_API_KEY");
+    }
+
+    this.jOpenCageGeocoder = new JOpenCageGeocoder(apiKey);
 //    this.jOpenCageGeocoder.setHttpsEnabled(true);
   }
   
