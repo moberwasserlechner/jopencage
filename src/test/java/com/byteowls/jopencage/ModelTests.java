@@ -29,8 +29,11 @@ public class ModelTests {
     Assert.assertNotNull(jOpenCageResponse);
     
     Date createdAt = jOpenCageResponse.getTimestamp().getCreatedAt();
-    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    Assert.assertEquals("2015-05-03 14:29:49", dateFormat.format(createdAt));
+    System.out.println("Raw date: " + createdAt);
+    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    String formattedDate = dateFormat.format(createdAt);
+    System.out.println("Formatted date: " + formattedDate);
+    Assert.assertEquals("2015-05-03 14:29", formattedDate);
   }
 
 }
