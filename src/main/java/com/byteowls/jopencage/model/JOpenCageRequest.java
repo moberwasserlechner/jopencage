@@ -4,6 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+/**
+ * @author moberwasserlechner
+ *
+ */
 public abstract class JOpenCageRequest {
 
   private String subkey;
@@ -14,6 +18,7 @@ public abstract class JOpenCageRequest {
   private boolean noAnnotations;
   private boolean noDedupe;
   private boolean pretty;
+  private boolean abbrv;
 
   public Map<String,String> getParameter() {
     Map<String, String> parameter = new HashMap<>();
@@ -38,7 +43,9 @@ public abstract class JOpenCageRequest {
     if (pretty) {
       parameter.put("pretty", "1");
     }
-
+    if (abbrv) {
+      parameter.put("abbrv", "1");
+    }
     return parameter;
   }
 
@@ -55,13 +62,9 @@ public abstract class JOpenCageRequest {
     this.subkey = subkey;
   }
 
-
-
-
   public String getLanguage() {
     return language;
   }
-
 
   /**
    * An IETF format language code (such as es for Spanish or pt-BR for Brazilian Portuguese); if this is omitted a code of en (English) will be assumed
@@ -71,11 +74,9 @@ public abstract class JOpenCageRequest {
     this.language = language;
   }
 
-
   public Integer getLimit() {
     return limit;
   }
-
 
   /**
    * How many results should be returned. Default is 10.
@@ -89,7 +90,6 @@ public abstract class JOpenCageRequest {
   public Integer getMinConfidence() {
     return minConfidence;
   }
-
 
   /**
    * An integer from 1-10 only results with at least this confidence will be returned.
@@ -137,6 +137,17 @@ public abstract class JOpenCageRequest {
    */
   public void setPretty(boolean pretty) {
     this.pretty = pretty;
+  }
+
+  public boolean isAbbrv() {
+    return abbrv;
+  }
+
+  /**
+   * If true it is attempted to abbreviate and shorten the formatted string returned.
+   */
+  public void setAbbrv(boolean abbrv) {
+    this.abbrv = abbrv;
   }
 
 }

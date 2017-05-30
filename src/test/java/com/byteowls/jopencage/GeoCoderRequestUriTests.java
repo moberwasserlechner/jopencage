@@ -11,9 +11,9 @@ import com.byteowls.jopencage.model.JOpenCageForwardRequest;
 import com.byteowls.jopencage.model.JOpenCageReverseRequest;
 
 public class GeoCoderRequestUriTests {
-  
+
   private JOpenCageGeocoder jOpenCageGeocoder;
-  
+
   @Before
   public void setup() {
     String apiKey = System.getProperty("OPENCAGE_API_KEY");
@@ -22,18 +22,18 @@ public class GeoCoderRequestUriTests {
     }
     this.jOpenCageGeocoder = new JOpenCageGeocoder(apiKey);
   }
-  
+
   @Test
   public void testForwardUriSimple() throws URISyntaxException {
     URI uri = jOpenCageGeocoder.buildUri(new JOpenCageForwardRequest("Graz"));
-    
+
     String uriString = uri.toString();
     Assert.assertNotNull(uriString);
     // parameter order not garanteed
-//    Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?q=Graz&key=YOUR-KEY-HERE", uriString);
+    //    Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?q=Graz&key=YOUR-KEY-HERE", uriString);
   }
-  
-  
+
+
   @Test
   public void testForwardUriAll() throws URISyntaxException {
     JOpenCageForwardRequest forwardReq = new JOpenCageForwardRequest("Graz");
@@ -46,24 +46,24 @@ public class GeoCoderRequestUriTests {
     forwardReq.setNoDedupe(true);
     forwardReq.setBounds(-0.563160,51.280430,0.278970,51.683979);
     URI uri = jOpenCageGeocoder.buildUri(forwardReq);
-    
+
     String uriString = uri.toString();
     Assert.assertNotNull(uriString);
     // order not garanteed
     //Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?no_annotations=1&q=Graz&pretty=1&limit=2&no_dedupe=1&language=de-AT&min_confidence=9&key=YOUR-KEY-HERE", uriString);
   }
-  
+
   @Test
   public void testReverseUriSimple() throws URISyntaxException {
     URI uri = jOpenCageGeocoder.buildUri(new JOpenCageReverseRequest(41.40139, 2.12870));
-    
+
     String uriString = uri.toString();
     Assert.assertNotNull(uriString);
     // parameter order not garanteed
-//    Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?q=Graz&key=YOUR-KEY-HERE", uriString);
+    //    Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?q=Graz&key=YOUR-KEY-HERE", uriString);
   }
-  
-  
+
+
   @Test
   public void testReverseUriAll() throws URISyntaxException {
     JOpenCageReverseRequest req = new JOpenCageReverseRequest(41.40139, 2.12870);
@@ -74,9 +74,21 @@ public class GeoCoderRequestUriTests {
     req.setNoAnnotations(true);
     req.setNoDedupe(true);
     URI uri = jOpenCageGeocoder.buildUri(req);
-    
+
     String uriString = uri.toString();
     Assert.assertNotNull(uriString);
+    // order not garanteed
+    //Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?no_annotations=1&q=Graz&pretty=1&limit=2&no_dedupe=1&language=de-AT&min_confidence=9&key=YOUR-KEY-HERE", uriString);
+  }
+
+  @Test
+  public void testContainsAbbrv() throws URISyntaxException {
+    JOpenCageForwardRequest forwardReq = new JOpenCageForwardRequest("Graz");
+    forwardReq.setAbbrv(true);
+    URI uri = jOpenCageGeocoder.buildUri(forwardReq);
+
+    String uriString = uri.toString();
+    Assert.assertTrue(uriString.contains("abbrv=1"));
     // order not garanteed
     //Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?no_annotations=1&q=Graz&pretty=1&limit=2&no_dedupe=1&language=de-AT&min_confidence=9&key=YOUR-KEY-HERE", uriString);
   }
