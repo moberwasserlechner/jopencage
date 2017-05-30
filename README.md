@@ -2,9 +2,9 @@
 
 This api provides a java client to the OpenCage geocoding service. http://geocoder.opencagedata.com/api.html
 
-Follow me on [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Twitter&style=flat-square)](https://twitter.com/michaelowl_web) to be notified about new releases.
-
 # Usage
+
+Follow me on [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Twitter&style=flat-square)](https://twitter.com/michaelowl_web) to be notified about new releases.
 
 ### Download
 
