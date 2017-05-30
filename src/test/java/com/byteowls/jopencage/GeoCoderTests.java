@@ -98,4 +98,21 @@ public class GeoCoderTests {
     }
   }
 
+  @Test
+  public void testQiblaAnnotation() {
+    JOpenCageForwardRequest request = new JOpenCageForwardRequest("Graz");
+    request.setRestrictToCountryCode("at");
+    request.setLimit(1);
+    request.setNoAnnotations(false);
+
+    JOpenCageResponse response = jOpenCageGeocoder.forward(request);
+    Assert.assertNotNull(response);
+
+    for (JOpenCageResult r : response.getResults()) {
+      Float qibla = r.getAnnotations().getQibla();
+      Assert.assertNotNull(qibla);
+      Assert.assertTrue(qibla >= 0 && qibla <= 360);
+    }
+  }
+
 }
