@@ -1,5 +1,5 @@
 plugins {
-  id "com.jfrog.bintray" version "1.5"
+  id "com.jfrog.bintray" version "1.7.3"
 }
 
 apply plugin: 'java'
@@ -62,12 +62,13 @@ publishing {
 // ##########################
 
 bintray {
-  user = hasProperty('BINTRAY_USER') ? BINTRAY_USER :  '' //this usually comes from gradle.properties file in ~/.gradle
-  key = hasProperty('BINTRAY_API_KEY') ? BINTRAY_API_KEY :  '' //this usually comes from gradle.properties file in ~/.gradle
+  user = project.hasProperty('BINTRAY_USER') ? BINTRAY_USER : null //this usually comes from gradle.properties file in ~/.gradle
+  key = project.hasProperty('BINTRAY_API_KEY') ? BINTRAY_API_KEY : null //this usually comes from gradle.properties file in ~/.gradle
 
   // configurations = ['archives'] //When uploading configuration files
   // - OR -
   publications = ['mavenJava'] //When uploading Maven-based publication files
+
 
   dryRun = false //Whether to run this as dry-run, without deploying
   publish = false //If version should be auto published after an upload
