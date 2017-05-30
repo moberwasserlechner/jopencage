@@ -92,5 +92,17 @@ public class GeoCoderRequestUriTests {
     // order not garanteed
     //Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?no_annotations=1&q=Graz&pretty=1&limit=2&no_dedupe=1&language=de-AT&min_confidence=9&key=YOUR-KEY-HERE", uriString);
   }
+  
+  @Test
+  public void testContainsNoRecord() throws URISyntaxException {
+    JOpenCageForwardRequest forwardReq = new JOpenCageForwardRequest("Graz");
+    forwardReq.setNoRecord(true);
+    URI uri = jOpenCageGeocoder.buildUri(forwardReq);
+
+    String uriString = uri.toString();
+    Assert.assertTrue(uriString.contains("no_record=1"));
+    // order not garanteed
+    //Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?no_annotations=1&q=Graz&pretty=1&limit=2&no_dedupe=1&language=de-AT&min_confidence=9&key=YOUR-KEY-HERE", uriString);
+  }
 
 }

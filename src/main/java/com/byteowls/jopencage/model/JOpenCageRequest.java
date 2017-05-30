@@ -19,6 +19,7 @@ public abstract class JOpenCageRequest {
   private boolean noDedupe;
   private boolean pretty;
   private boolean abbrv;
+  private boolean noRecord;
 
   public Map<String,String> getParameter() {
     Map<String, String> parameter = new HashMap<>();
@@ -45,6 +46,9 @@ public abstract class JOpenCageRequest {
     }
     if (abbrv) {
       parameter.put("abbrv", "1");
+    }
+    if (noRecord) {
+      parameter.put("no_record", "1");
     }
     return parameter;
   }
@@ -149,5 +153,18 @@ public abstract class JOpenCageRequest {
   public void setAbbrv(boolean abbrv) {
     this.abbrv = abbrv;
   }
+
+  public boolean isNoRecord() {
+    return noRecord;
+  }
+
+  /**
+   * If set to true the query contents are not logged.
+   * Please use if you have concerns about privacy and want us to have no record of your query.
+   */
+  public void setNoRecord(boolean noRecord) {
+    this.noRecord = noRecord;
+  }
+
 
 }
