@@ -67,5 +67,20 @@ public class GeoCoderTests {
       Assert.assertNotNull(r.getAnnotations());
     }
   }
+  
+  @Test
+  public void testWikiDataAnnotation() {
+    JOpenCageForwardRequest request = new JOpenCageForwardRequest("Graz");
+    request.setRestrictToCountryCode("at");
+    request.setLimit(1);
+    request.setNoAnnotations(false);
+    
+    JOpenCageResponse response = jOpenCageGeocoder.forward(request);
+    Assert.assertNotNull(response);
+
+    for (JOpenCageResult r : response.getResults()) {
+      Assert.assertNotNull(r.getAnnotations().getWikidata());
+    }
+  }
 
 }
