@@ -1,8 +1,8 @@
-# JOpenCage [![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/jopencage.svg)](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion) [![PayPal](https://img.shields.io/badge/%24-paypal-f39c12.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=N8VS2P9233NJQ) [![License](https://img.shields.io/badge/license-Apache_2.0-orange.svg)](https://github.com/moberwasserlechner/jopencage/blob/develop/LICENSE) [![Travis](https://img.shields.io/travis/moberwasserlechner/jopencage/develop.svg?maxAge=2592000)](https://travis-ci.org/moberwasserlechner/jopencage)[![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Follow&style=flat-square)](https://twitter.com/michaelowl_web)
+# JOpenCage [![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/jopencage.svg)](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion) [![Travis](https://img.shields.io/travis/moberwasserlechner/jopencage/develop.svg?maxAge=2592000)](https://travis-ci.org/moberwasserlechner/jopencage) [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Twitter&style=flat-square)](https://twitter.com/michaelowl_web)
 
 This api provides a java client to the OpenCage geocoding service. http://geocoder.opencagedata.com/api.html
 
-Follow me on twitter to be notified about new releases. [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Follow&style=flat-square)](https://twitter.com/michaelowl_web) 
+Follow me on [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Twitter&style=flat-square)](https://twitter.com/michaelowl_web) to be notified about new releases.
 
 # Usage
 
