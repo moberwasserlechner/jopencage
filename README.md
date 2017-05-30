@@ -1,4 +1,4 @@
-# JOpenCage [![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/jopencage.svg)](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion) [![Travis](https://img.shields.io/travis/moberwasserlechner/jopencage/develop.svg?maxAge=2592000)](https://travis-ci.org/moberwasserlechner/jopencage) [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Twitter&style=flat-square)](https://twitter.com/michaelowl_web)
+# JOpenCage [![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/jopencage.svg)](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion) [![Travis](https://img.shields.io/travis/moberwasserlechner/jopencage/develop.svg?maxAge=2592000)](https://travis-ci.org/moberwasserlechner/jopencage) [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Follow&style=flat-square)](https://twitter.com/michaelowl_web)
 
 This api provides a java client to the OpenCage geocoding service. http://geocoder.opencagedata.com/api.html
 

@@ -5,17 +5,43 @@ import java.util.Map;
 
 
 public abstract class JOpenCageRequest {
-  
+
   private String subkey;
-  
+
+  private String language; // defaults to en
+  private Integer limit;
+  private Integer minConfidence;
+  private boolean noAnnotations;
+  private boolean noDedupe;
+  private boolean pretty;
+
   public Map<String,String> getParameter() {
     Map<String, String> parameter = new HashMap<>();
     if (subkey != null) {
       parameter.put("subkey", subkey);
     }
+
+    parameter.put("language", language);
+    if (limit != null) {
+      parameter.put("limit", String.valueOf(limit));
+    }
+    if (minConfidence != null) {
+      parameter.put("min_confidence", String.valueOf(minConfidence));
+    }
+
+    if (noAnnotations) {
+      parameter.put("no_annotations", "1");
+    }
+    if (noDedupe) {
+      parameter.put("no_dedupe", "1");
+    }
+    if (pretty) {
+      parameter.put("pretty", "1");
+    }
+
     return parameter;
   }
-  
+
   public String getSubkey() {
     return subkey;
   }
@@ -27,6 +53,90 @@ public abstract class JOpenCageRequest {
    */
   public void setSubkey(String subkey) {
     this.subkey = subkey;
+  }
+
+
+
+
+  public String getLanguage() {
+    return language;
+  }
+
+
+  /**
+   * An IETF format language code (such as es for Spanish or pt-BR for Brazilian Portuguese); if this is omitted a code of en (English) will be assumed
+   * @param language the language code
+   */
+  public void setLanguage(String language) {
+    this.language = language;
+  }
+
+
+  public Integer getLimit() {
+    return limit;
+  }
+
+
+  /**
+   * How many results should be returned. Default is 10.
+   * @param limit maximum number of results.
+   */
+  public void setLimit(Integer limit) {
+    this.limit = limit;
+  }
+
+
+  public Integer getMinConfidence() {
+    return minConfidence;
+  }
+
+
+  /**
+   * An integer from 1-10 only results with at least this confidence will be returned.
+   * @param minConfidence minimum confidence that the result matches
+   */
+  public void setMinConfidence(Integer minConfidence) {
+    this.minConfidence = minConfidence;
+  }
+
+
+  public boolean isNoAnnotations() {
+    return noAnnotations;
+  }
+
+
+  /**
+   * If set to true the results will not contain annotations.
+   * @param noAnnotations If true no annotations are included. Defaults to false.
+   */
+  public void setNoAnnotations(boolean noAnnotations) {
+    this.noAnnotations = noAnnotations;
+  }
+
+
+  public boolean isNoDedupe() {
+    return noDedupe;
+  }
+
+  /**
+   * If set to true the results will not be deduplicated.
+   * @param noDedupe If true the result will not be deduplicated. Defaults to false.
+   */
+  public void setNoDedupe(boolean noDedupe) {
+    this.noDedupe = noDedupe;
+  }
+
+
+  public boolean isPretty() {
+    return pretty;
+  }
+
+  /**
+   * If set to true pretty printing of the response payload is enabled.
+   * @param pretty If true the response will be pretty formatted.
+   */
+  public void setPretty(boolean pretty) {
+    this.pretty = pretty;
   }
 
 }

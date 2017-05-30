@@ -7,6 +7,7 @@ import org.junit.Test;
 import com.byteowls.jopencage.model.JOpenCageForwardRequest;
 import com.byteowls.jopencage.model.JOpenCageLatLng;
 import com.byteowls.jopencage.model.JOpenCageResponse;
+import com.byteowls.jopencage.model.JOpenCageResult;
 import com.byteowls.jopencage.model.JOpenCageReverseRequest;
 
 
@@ -51,6 +52,20 @@ public class GeoCoderTests {
     
     JOpenCageResponse response = jOpenCageGeocoder.reverse(request);
     Assert.assertNotNull(response);
+  }
+  
+  @Test
+  public void testAnnotationIncluded() {
+    JOpenCageReverseRequest request = new JOpenCageReverseRequest(-22.6792, 14.5272);
+//    request.setLanguage("de");
+//    request.setNoAnnotations(true);
+    
+    JOpenCageResponse response = jOpenCageGeocoder.reverse(request);
+    Assert.assertNotNull(response);
+    
+    for (JOpenCageResult r : response.getResults()) {
+      Assert.assertNotNull(r.getAnnotations());
+    }
   }
 
 }
