@@ -126,4 +126,18 @@ public class GeoCoderTests {
     }
   }
 
+  @Test
+  public void testMercatorAnnotation() {
+    JOpenCageForwardRequest request = new JOpenCageForwardRequest("London");
+    request.setLimit(1);
+
+    JOpenCageResponse response = jOpenCageGeocoder.forward(request);
+    Assert.assertNotNull(response);
+
+    for (JOpenCageResult r : response.getResults()) {
+      JOpenCageMercator mercator = r.getAnnotations().getMercator();
+      Assert.assertNotNull(mercator);
+    }
+  }
+
 }

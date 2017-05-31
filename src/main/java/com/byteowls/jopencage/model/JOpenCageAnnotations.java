@@ -27,7 +27,9 @@ public class JOpenCageAnnotations {
   @JsonProperty("Maidenhead")
   private String maidenhead;
 
-  // TODO Mercator see http://geocoder.opencagedata.com/api.html#annotations
+  @JsonProperty("Mercator")
+  private JOpenCageMercator mercator;
+
   // TODO sun see http://geocoder.opencagedata.com/api.html#annotations
 
   @JsonProperty("OSGB")
@@ -64,6 +66,15 @@ public class JOpenCageAnnotations {
 
   public String getMaidenhead() {
     return maidenhead;
+  }
+
+  /**
+   * Contains the Mercator projection (EPSG 3857, sometimes also referred to as "Spherical Mercator") x and y unit meter values of the center point of the result.
+   *
+   * Note: use of Mercator projection on latitudes above/below +70/-70 degrees is strongly discouraged, due to the gross distortions of the projection.
+   */
+  public JOpenCageMercator getMercator() {
+    return mercator;
   }
 
   /**
@@ -107,6 +118,5 @@ public class JOpenCageAnnotations {
   public Float getQibla() {
     return qibla;
   }
-
 
 }
