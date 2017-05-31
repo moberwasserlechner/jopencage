@@ -1,14 +1,9 @@
 package com.byteowls.jopencage;
 
+import com.byteowls.jopencage.model.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.byteowls.jopencage.model.JOpenCageForwardRequest;
-import com.byteowls.jopencage.model.JOpenCageLatLng;
-import com.byteowls.jopencage.model.JOpenCageResponse;
-import com.byteowls.jopencage.model.JOpenCageResult;
-import com.byteowls.jopencage.model.JOpenCageReverseRequest;
 
 
 public class GeoCoderTests {
@@ -112,6 +107,22 @@ public class GeoCoderTests {
       Float qibla = r.getAnnotations().getQibla();
       Assert.assertNotNull(qibla);
       Assert.assertTrue(qibla >= 0 && qibla <= 360);
+    }
+  }
+
+  @Test
+  public void testOSGBAnnotation() {
+    JOpenCageForwardRequest request = new JOpenCageForwardRequest("London");
+    request.setRestrictToCountryCode("uk");
+    request.setLimit(1);
+    request.setNoAnnotations(false);
+
+    JOpenCageResponse response = jOpenCageGeocoder.forward(request);
+    Assert.assertNotNull(response);
+
+    for (JOpenCageResult r : response.getResults()) {
+      JOpenCageOSGB osgb = r.getAnnotations().getOSGB();
+      Assert.assertNotNull(osgb);
     }
   }
 

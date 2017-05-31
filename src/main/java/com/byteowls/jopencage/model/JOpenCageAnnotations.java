@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  *
  */
 @JsonInclude(Include.NON_NULL)
-@JsonIgnoreProperties(ignoreUnknown = true, value = {"Mercator","sun", "OSGB"})
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class JOpenCageAnnotations {
 
   // DMS
@@ -28,8 +28,10 @@ public class JOpenCageAnnotations {
   private String maidenhead;
 
   // TODO Mercator see http://geocoder.opencagedata.com/api.html#annotations
-  // TODO OSGB see http://geocoder.opencagedata.com/api.html#annotations
   // TODO sun see http://geocoder.opencagedata.com/api.html#annotations
+
+  @JsonProperty("OSGB")
+  private JOpenCageOSGB OSGB;
 
   @JsonProperty("OSM")
   private JOpenCageOSM OSM;
@@ -62,6 +64,14 @@ public class JOpenCageAnnotations {
 
   public String getMaidenhead() {
     return maidenhead;
+  }
+
+  /**
+   * Contains the Ordnance Survey National Grid easting , northing , and gridref of the center point of the result.
+   * This annotation is applied only for locations in Great Britain.
+   */
+  public JOpenCageOSGB getOSGB() {
+    return OSGB;
   }
 
   public JOpenCageOSM getOSM() {
@@ -97,5 +107,6 @@ public class JOpenCageAnnotations {
   public Float getQibla() {
     return qibla;
   }
+
 
 }
