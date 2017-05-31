@@ -20,6 +20,7 @@ public abstract class JOpenCageRequest {
   private boolean pretty;
   private boolean abbrv;
   private boolean noRecord;
+  private boolean onlyNominatim;
 
   public Map<String,String> getParameter() {
     Map<String, String> parameter = new HashMap<>();
@@ -49,6 +50,9 @@ public abstract class JOpenCageRequest {
     }
     if (noRecord) {
       parameter.put("no_record", "1");
+    }
+    if (onlyNominatim) {
+      parameter.put("only_nominatim", "1");
     }
     return parameter;
   }
@@ -166,5 +170,12 @@ public abstract class JOpenCageRequest {
     this.noRecord = noRecord;
   }
 
+  public boolean isOnlyNominatim() {
+    return onlyNominatim;
+  }
+
+  public void setOnlyNominatim(boolean onlyNominatim) {
+    this.onlyNominatim = onlyNominatim;
+  }
 
 }

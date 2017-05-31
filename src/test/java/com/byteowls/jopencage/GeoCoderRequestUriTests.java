@@ -29,8 +29,6 @@ public class GeoCoderRequestUriTests {
 
     String uriString = uri.toString();
     Assert.assertNotNull(uriString);
-    // parameter order not garanteed
-    //    Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?q=Graz&key=YOUR-KEY-HERE", uriString);
   }
 
 
@@ -49,8 +47,6 @@ public class GeoCoderRequestUriTests {
 
     String uriString = uri.toString();
     Assert.assertNotNull(uriString);
-    // order not garanteed
-    //Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?no_annotations=1&q=Graz&pretty=1&limit=2&no_dedupe=1&language=de-AT&min_confidence=9&key=YOUR-KEY-HERE", uriString);
   }
 
   @Test
@@ -59,8 +55,6 @@ public class GeoCoderRequestUriTests {
 
     String uriString = uri.toString();
     Assert.assertNotNull(uriString);
-    // parameter order not garanteed
-    //    Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?q=Graz&key=YOUR-KEY-HERE", uriString);
   }
 
 
@@ -77,8 +71,6 @@ public class GeoCoderRequestUriTests {
 
     String uriString = uri.toString();
     Assert.assertNotNull(uriString);
-    // order not garanteed
-    //Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?no_annotations=1&q=Graz&pretty=1&limit=2&no_dedupe=1&language=de-AT&min_confidence=9&key=YOUR-KEY-HERE", uriString);
   }
 
   @Test
@@ -89,8 +81,6 @@ public class GeoCoderRequestUriTests {
 
     String uriString = uri.toString();
     Assert.assertTrue(uriString.contains("abbrv=1"));
-    // order not garanteed
-    //Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?no_annotations=1&q=Graz&pretty=1&limit=2&no_dedupe=1&language=de-AT&min_confidence=9&key=YOUR-KEY-HERE", uriString);
   }
   
   @Test
@@ -101,8 +91,16 @@ public class GeoCoderRequestUriTests {
 
     String uriString = uri.toString();
     Assert.assertTrue(uriString.contains("no_record=1"));
-    // order not garanteed
-    //Assert.assertEquals("https://api.opencagedata.com/geocode/v1/json?no_annotations=1&q=Graz&pretty=1&limit=2&no_dedupe=1&language=de-AT&min_confidence=9&key=YOUR-KEY-HERE", uriString);
+  }
+  
+  @Test
+  public void testContainsOnlyNominatim() throws URISyntaxException {
+    JOpenCageForwardRequest forwardReq = new JOpenCageForwardRequest("Graz");
+    forwardReq.setOnlyNominatim(true);
+    URI uri = jOpenCageGeocoder.buildUri(forwardReq);
+
+    String uriString = uri.toString();
+    Assert.assertTrue(uriString.contains("only_nominatim=1"));
   }
 
 }
