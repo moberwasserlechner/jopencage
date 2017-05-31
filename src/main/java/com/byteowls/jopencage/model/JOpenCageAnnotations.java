@@ -44,6 +44,8 @@ public class JOpenCageAnnotations {
   @JsonProperty("callingcode")
   private int telephoneCallingCode;
 
+  private JOpenCageCurrency currency;
+
   @JsonProperty("geohash")
   private String geoHash;
 
@@ -93,6 +95,13 @@ public class JOpenCageAnnotations {
     return telephoneCallingCode;
   }
 
+  /**
+   * Information about the local currency
+   */
+  public JOpenCageCurrency getCurrency() {
+    return currency;
+  }
+
   public String getGeoHash() {
     return geoHash;
   }
@@ -118,5 +127,6 @@ public class JOpenCageAnnotations {
   public Float getQibla() {
     return qibla;
   }
+
 
 }

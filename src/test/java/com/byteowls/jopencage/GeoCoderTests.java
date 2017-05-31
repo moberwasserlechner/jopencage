@@ -140,4 +140,23 @@ public class GeoCoderTests {
     }
   }
 
+
+  @Test
+  public void testCurrencyAnnotation() {
+    JOpenCageForwardRequest request = new JOpenCageForwardRequest("Bern");
+    request.setLimit(1);
+
+    JOpenCageResponse response = jOpenCageGeocoder.forward(request);
+    Assert.assertNotNull(response);
+
+    for (JOpenCageResult r : response.getResults()) {
+      JOpenCageCurrency currency = r.getAnnotations().getCurrency();
+      Assert.assertTrue(currency.getName().equalsIgnoreCase("Swiss Franc"));
+      Assert.assertTrue(currency.getIsoNumeric() == 756);
+      Assert.assertTrue(currency.getSmallestDenomination() == 5);
+      Assert.assertTrue(currency.isSymbolFirst());
+      break;
+    }
+  }
+
 }
