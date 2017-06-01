@@ -159,4 +159,21 @@ public class GeoCoderTests {
     }
   }
 
+  @Test
+  public void testSunAnnotation() {
+    JOpenCageForwardRequest request = new JOpenCageForwardRequest("Berlin");
+    request.setLimit(1);
+
+    JOpenCageResponse response = jOpenCageGeocoder.forward(request);
+    Assert.assertNotNull(response);
+
+    for (JOpenCageResult r : response.getResults()) {
+      JOpenCageSun sun = r.getAnnotations().getSun();
+      Assert.assertNotNull(sun);
+      Assert.assertNotNull(sun.getRise().getApparent());
+      Assert.assertNotNull(sun.getSet().getApparent());
+      break;
+    }
+  }
+
 }

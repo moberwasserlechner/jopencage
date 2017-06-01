@@ -30,8 +30,6 @@ public class JOpenCageAnnotations {
   @JsonProperty("Mercator")
   private JOpenCageMercator mercator;
 
-  // TODO sun see http://geocoder.opencagedata.com/api.html#annotations
-
   @JsonProperty("OSGB")
   private JOpenCageOSGB OSGB;
 
@@ -57,6 +55,8 @@ public class JOpenCageAnnotations {
   private String wikidata;
 
   private Float qibla;
+
+  private JOpenCageSun sun;
 
   public JOpenCageDMS getDMS() {
     return DMS;
@@ -128,5 +128,11 @@ public class JOpenCageAnnotations {
     return qibla;
   }
 
+  /**
+   * Various sun rising and set values.
+   */
+  public JOpenCageSun getSun() {
+    return sun;
+  }
 
 }
