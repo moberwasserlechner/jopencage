@@ -176,4 +176,19 @@ public class GeoCoderTests {
     }
   }
 
+  @Test
+  public void testITMAnnotation() {
+    JOpenCageForwardRequest request = new JOpenCageForwardRequest("Dublin");
+    request.setLimit(1);
+
+    JOpenCageResponse response = jOpenCageGeocoder.forward(request);
+    Assert.assertNotNull(response);
+
+    for (JOpenCageResult r : response.getResults()) {
+      JOpenCageITM itm = r.getAnnotations().getITM();
+      Assert.assertNotNull(itm);
+      break;
+    }
+  }
+
 }

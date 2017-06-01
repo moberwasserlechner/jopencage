@@ -21,6 +21,9 @@ public class JOpenCageAnnotations {
   @JsonProperty("DMS")
   private JOpenCageDMS DMS;
 
+  @JsonProperty("ITM")
+  private JOpenCageITM ITM;
+
   @JsonProperty("MGRS")
   private String MGRS;
 
@@ -58,14 +61,23 @@ public class JOpenCageAnnotations {
 
   private JOpenCageSun sun;
 
+  /**
+   * The latitude and longitude of the center point of the result in degree minute decimal second format.
+   */
   public JOpenCageDMS getDMS() {
     return DMS;
   }
 
+  /**
+   * Contains a Military Grid Reference System code for the center point of the result. WGS84 datum.
+   */
   public String getMGRS() {
     return MGRS;
   }
 
+  /**
+   * Contains a Maidenhead location reference for the center point of the result.
+   */
   public String getMaidenhead() {
     return maidenhead;
   }
@@ -87,10 +99,20 @@ public class JOpenCageAnnotations {
     return OSGB;
   }
 
+  /**
+   * Contains a key url with an HTTPS url for looking at the center point of the result on openstreetmap.org.
+   *
+   * May also contain a editUrl with an HTTPS url for editing the result on openstreetmap.org.
+   *
+   * Note that you may need to zoom in or out to edit and in doing so focus may shift to a different element.
+   */
   public JOpenCageOSM getOSM() {
     return OSM;
   }
 
+  /**
+   * The telephone calling code for the country of the result.
+   */
   public int getTelephoneCallingCode() {
     return telephoneCallingCode;
   }
@@ -102,6 +124,9 @@ public class JOpenCageAnnotations {
     return currency;
   }
 
+  /**
+   * Contains a geohash for the center point of the result.
+   */
   public String getGeoHash() {
     return geoHash;
   }
@@ -110,6 +135,11 @@ public class JOpenCageAnnotations {
     return timeZone;
   }
 
+  /**
+   * what3word location code.
+   *
+   * By default the words returned are in English, but if the query contained the optional language and it is a language what3words supports, the words will be in that language.
+   */
   public JOpenCageWhat3Words getWhat3words() {
     return what3words;
   }
@@ -135,4 +165,10 @@ public class JOpenCageAnnotations {
     return sun;
   }
 
+  /**
+   * Contains the Irish Transverse Mercator easting and northing of the center point of the result. This annotation is applied only for locations in Ireland.
+   */
+  public JOpenCageITM getITM() {
+    return ITM;
+  }
 }
