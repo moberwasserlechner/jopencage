@@ -104,7 +104,7 @@ public class GeoCoderTests {
     Assert.assertNotNull(response);
 
     for (JOpenCageResult r : response.getResults()) {
-      Float qibla = r.getAnnotations().getQibla();
+      Double qibla = r.getAnnotations().getQibla();
       Assert.assertNotNull(qibla);
       Assert.assertTrue(qibla >= 0 && qibla <= 360);
     }

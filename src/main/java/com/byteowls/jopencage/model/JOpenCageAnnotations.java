@@ -57,7 +57,7 @@ public class JOpenCageAnnotations {
 
   private String wikidata;
 
-  private Float qibla;
+  private Double qibla;
 
   private JOpenCageSun sun;
 
@@ -154,7 +154,7 @@ public class JOpenCageAnnotations {
   /**
    * Decimal degrees clockwise from true north to turn to point to the Kaaba (21.4225,39.8262). Calculated using the great circle method.
    */
-  public Float getQibla() {
+  public Double getQibla() {
     return qibla;
   }
 
