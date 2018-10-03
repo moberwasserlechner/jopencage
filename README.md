@@ -8,7 +8,7 @@ If you like the project please star it on Github.
 
 I you find a bug of have a question ask it in a kind and reproducable way. I do this mostly in my spare time and for fun.
 
-If you want to buy me a beer :), here is my [paypal link](https://www.paypal.me/moberwasserlechner).
+If you want to give me your money, do not wait here is my [paypal link](https://www.paypal.me/moberwasserlechner) :)
 
 # Usage
 
@@ -94,7 +94,7 @@ Reverse
 
 # Libraries
 
-* JDK 7+
+* JDK 8+
 * Apache Http Client
 * FasterXml Jackson
 * slf4j

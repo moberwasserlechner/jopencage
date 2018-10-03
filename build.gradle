@@ -11,8 +11,8 @@ repositories {
   jcenter()
 }
 
-sourceCompatibility = JavaVersion.VERSION_1_7
-targetCompatibility = JavaVersion.VERSION_1_7
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
 dependencies {
   compile ("org.slf4j:slf4j-api:${slf4jVersion}")
@@ -50,7 +50,7 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             from components.java
-            
+
             artifact sourcesJar
             artifact javadocJar
         }
@@ -72,8 +72,8 @@ bintray {
 
   dryRun = false //Whether to run this as dry-run, without deploying
   publish = false //If version should be auto published after an upload
-  
-  // Package configuration. The plugin will use the repo and name properties to check if the package already exists. 
+
+  // Package configuration. The plugin will use the repo and name properties to check if the package already exists.
   // In that case, there's no need to configure the other package properties (like userOrg, desc, etc).
   pkg {
     repo = 'maven'
