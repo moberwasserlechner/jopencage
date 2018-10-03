@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class JOpenCageComponents {
   @JsonProperty("ISO_3166-1_alpha-2")
-  private String iso3166_1;
+  private String iso31661;
   @JsonProperty("_type")
   private String type;
   private String city;
@@ -29,8 +29,8 @@ public class JOpenCageComponents {
   private String suburb;
   private String town;
 
-  public String getISO3166_1() {
-    return iso3166_1;
+  public String getISO31661() {
+    return iso31661;
   }
 
   public String getType() {
