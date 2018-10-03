@@ -1,20 +1,9 @@
-# JOpenCage [![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/jopencage.svg)](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion) [![Travis](https://img.shields.io/travis/moberwasserlechner/jopencage/develop.svg?maxAge=2592000)](https://travis-ci.org/moberwasserlechner/jopencage) [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Follow&style=flat-square)](https://twitter.com/michaelowl_web)
+# JOpenCage 
+[![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/jopencage.svg)](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion) [![Travis](https://img.shields.io/travis/moberwasserlechner/jopencage/develop.svg?maxAge=2592000)](https://travis-ci.org/moberwasserlechner/jopencage) [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Follow&style=flat-square)](https://twitter.com/michaelowl_web) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?style=flat-square)](https://www.paypal.me/moberwasserlechner)
 
 This api provides a java client to the OpenCage geocoding service. https://opencagedata.com/api
 
-## Show your appreciation
-
-If you like the project please star it on Github. 
-
-I you find a bug of have a question ask it in a kind and reproducable way. I do this mostly in my spare time and for fun.
-
-If you want to give me your money, do not wait here is my [paypal link](https://www.paypal.me/moberwasserlechner) :)
-
-# Usage
-
-Follow me on [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Twitter&style=flat-square)](https://twitter.com/michaelowl_web) to be notified about new releases.
-
-### Download
+## Usage
 
 [![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/jopencage.svg)](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion)
 
@@ -92,14 +81,12 @@ Reverse
     
     JOpenCageResponse response = jOpenCageGeocoder.reverse(request);
 
-# Libraries
+## Libraries
 
 * JDK 8+
 * Apache Http Client
 * FasterXml Jackson
 * slf4j
-
-# Missing something?
 
 ## Contribute
 
@@ -138,7 +125,7 @@ If not: Please use the sun coding convention. Please do not use tabs at all!
 
 Try to change only parts your feature or bugfix requires.
 
-# Testing
+## Testing
 
 For running the tests you have to use your *own* OpenCage API Key.
 
