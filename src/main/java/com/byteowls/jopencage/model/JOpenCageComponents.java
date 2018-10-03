@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class JOpenCageComponents {
+  @JsonProperty("ISO_3166-1_alpha-2")
+  private String iso3166_1;
   @JsonProperty("_type")
   private String type;
   private String city;
@@ -22,6 +24,14 @@ public class JOpenCageComponents {
   @JsonProperty("house_number")
   private String houseNumber;
   private String state;
+  @JsonProperty("political_union")
+  private String politicalUnion;
+  private String suburb;
+  private String town;
+
+  public String getISO3166_1() {
+    return iso3166_1;
+  }
 
   public String getType() {
     return type;
@@ -63,4 +73,15 @@ public class JOpenCageComponents {
     return state;
   }
 
+  public String getPoliticalUnion() {
+    return politicalUnion;
+  }
+
+  public String getSuburb() {
+    return suburb;
+  }
+
+  public String getTown() {
+    return town;
+  }
 }
