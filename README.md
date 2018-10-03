@@ -130,6 +130,14 @@ Please do not mix more than one issue in a feature branch. Each feature/bugfix s
 6. Push to the branch (`git push origin feature/my-feature`)
 7. Create a Github Pull Request
 
+### Code Style
+
+This repo includes a .editorconfig file, which your IDE should pickup automatically.
+
+If not: Please use the sun coding convention. Please do not use tabs at all!
+
+Try to change only parts your feature or bugfix requires.
+
 # Testing
 
 For running the tests you have to use your *own* OpenCage API Key.
