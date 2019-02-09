@@ -16,6 +16,7 @@ import org.apache.http.impl.client.HttpClientBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.byteowls.jopencage.model.JOpenCageFormat;
 import com.byteowls.jopencage.model.JOpenCageForwardRequest;
 import com.byteowls.jopencage.model.JOpenCageRequest;
 import com.byteowls.jopencage.model.JOpenCageResponse;
@@ -23,9 +24,8 @@ import com.byteowls.jopencage.model.JOpenCageReverseRequest;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-
 public class JOpenCageGeocoder {
-
+  
   private final static Logger LOGGER = LoggerFactory.getLogger(JOpenCageGeocoder.class);
 
   private final static String OPENCAGE_HOST = "api.opencagedata.com";
@@ -37,7 +37,7 @@ public class JOpenCageGeocoder {
   private boolean httpsEnabled = false;
   private String host = OPENCAGE_HOST;
   private String path = OPENCAGE_PATH;
-  private String format = "json";
+  private JOpenCageFormat format = JOpenCageFormat.JSON;
   private String apiKey;
 
   public JOpenCageGeocoder(String apiKey) {
@@ -60,7 +60,26 @@ public class JOpenCageGeocoder {
       uriBuilder.setScheme("http");
     }
     uriBuilder.setHost(host)
-    .setPath(path + format);
+    .setPath(path + format.getFormat());
+
+    for (Entry<String, String> e : jOpenCageRequest.getParameter().entrySet()) {
+      if (e.getValue() != null) {
+        uriBuilder.setParameter(e.getKey(), e.getValue());
+      }
+    }
+    uriBuilder.setParameter("key", apiKey);
+    return uriBuilder.build();
+  }
+  
+  public URI buildUri(JOpenCageRequest jOpenCageRequest, JOpenCageFormat format) throws URISyntaxException {
+    URIBuilder uriBuilder = new URIBuilder();
+    if (httpsEnabled) {
+      uriBuilder.setScheme("https");
+    } else {
+      uriBuilder.setScheme("http");
+    }
+    uriBuilder.setHost(host)
+    .setPath(path + format.getFormat());
 
     for (Entry<String, String> e : jOpenCageRequest.getParameter().entrySet()) {
       if (e.getValue() != null) {

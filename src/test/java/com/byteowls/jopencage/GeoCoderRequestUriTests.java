@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.byteowls.jopencage.model.JOpenCageFormat;
 import com.byteowls.jopencage.model.JOpenCageForwardRequest;
 import com.byteowls.jopencage.model.JOpenCageReverseRequest;
 
@@ -31,7 +32,6 @@ public class GeoCoderRequestUriTests {
     Assert.assertNotNull(uriString);
   }
 
-
   @Test
   public void testForwardUriAll() throws URISyntaxException {
     JOpenCageForwardRequest forwardReq = new JOpenCageForwardRequest("Graz");
@@ -44,8 +44,29 @@ public class GeoCoderRequestUriTests {
     forwardReq.setNoDedupe(true);
     forwardReq.setBounds(-0.563160,51.280430,0.278970,51.683979);
     URI uri = jOpenCageGeocoder.buildUri(forwardReq);
-
+    
     String uriString = uri.toString();
+    System.out.println(uriString);
+    Assert.assertNotNull(uriString);
+  }
+  
+  @Test
+  public void testForwardUriWithFormat() throws URISyntaxException {
+    JOpenCageForwardRequest forwardReq = new JOpenCageForwardRequest("Graz");
+    forwardReq.setPretty(true);
+    forwardReq.setLanguage("de-AT");
+    forwardReq.setRestrictToCountryCode("at");
+    forwardReq.setLimit(2);
+    forwardReq.setMinConfidence(2);
+    forwardReq.setNoAnnotations(true);
+    forwardReq.setNoDedupe(true);
+    forwardReq.setBounds(17.5,49.0,10.5,46.6);
+    // set response format; default is json
+    URI uri = jOpenCageGeocoder.buildUri(forwardReq, JOpenCageFormat.GEOJSON);
+    //  URI uri = jOpenCageGeocoder.buildUri(forwardReq, JOpenCageFormat.XML);
+    //  URI uri = jOpenCageGeocoder.buildUri(forwardReq, JOpenCageFormat.JSON);
+    String uriString = uri.toString();
+    System.out.println(uriString);
     Assert.assertNotNull(uriString);
   }
 
