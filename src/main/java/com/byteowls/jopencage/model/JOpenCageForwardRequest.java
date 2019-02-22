@@ -1,6 +1,7 @@
 package com.byteowls.jopencage.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -29,10 +30,7 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
     if (queryParts == null || queryParts.length <= 0) {
       throw new IllegalArgumentException("queryParts must not null!");
     }
-    
-    for (String p : queryParts) {
-      this.queryParts.add(p);
-    }
+    this.queryParts.addAll(Arrays.asList(queryParts));
   }
   
   public Map<String,String> getParameter() {
@@ -73,9 +71,14 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
   }
 
   /**
-   * Provides the geocoder with a hint to the region that the query resides in. 
-   * This value will restrict the possible results to the supplied region. 
-   * The bounds parameter should be specified as 4 coordinate points forming the south-west and north-east corners of a bounding box.
+   * Provides the geocoder with a hint to the region that the query resides in.
+   * This value will restrict the possible results to the supplied region.
+   * The value of the bounds parameter should be specified as
+   * two coordinate points forming the south-west and north-east corners of a bounding box.
+   * For example: bounds=-0.563160,51.280430,0.278970,51.683979 (min lon, min lat, max lon, max lat).
+   *
+   * Values that are not valid coordinates are ignored.
+   *
    * @param southWestLng south west longitude
    * @param southWestLat south west latitude
    * @param northEastLng north east longitude
