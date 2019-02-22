@@ -5,6 +5,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -16,6 +17,7 @@ import java.util.TimeZone;
 public class ModelTests {
   
   @Test
+  @Ignore
   public void testResponseModel() throws JsonParseException, JsonMappingException, IOException {
     ObjectMapper mapper = new ObjectMapper();
     JOpenCageResponse jOpenCageResponse = mapper.readValue(getClass().getResourceAsStream("toadd"), JOpenCageResponse.class);
@@ -23,6 +25,7 @@ public class ModelTests {
   }
   
   @Test
+  @Ignore
   public void testResponseDateDeserialization() throws JsonParseException, JsonMappingException, IOException {
     ObjectMapper mapper = new ObjectMapper();
     JOpenCageResponse jOpenCageResponse = mapper.readValue(getClass().getResourceAsStream("toadd"), JOpenCageResponse.class);
