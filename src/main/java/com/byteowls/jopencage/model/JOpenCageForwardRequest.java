@@ -49,10 +49,10 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
     parameter.put("q", sb.toString());
     
     if (bounds != null) {
-      String boundsSTr = bounds.getSouthwest().getLat()
-          + "," + bounds.getSouthwest().getLng() 
-          + "," + bounds.getNortheast().getLat() 
-          + "," + bounds.getNortheast().getLng();
+      String boundsSTr = bounds.getSouthwest().getLng()
+          + "," + bounds.getSouthwest().getLat() 
+          + "," + bounds.getNortheast().getLng() 
+          + "," + bounds.getNortheast().getLat();
       parameter.put("bounds", boundsSTr);
     }
     
@@ -76,12 +76,14 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
    * Provides the geocoder with a hint to the region that the query resides in. 
    * This value will restrict the possible results to the supplied region. 
    * The bounds parameter should be specified as 4 coordinate points forming the south-west and north-east corners of a bounding box.
-   * @param northEastLat north east latitude
-   * @param northEastLng north east longitude
-   * @param southWestLat south west latitude
    * @param southWestLng south west longitude
+   * @param southWestLat south west latitude
+   * @param northEastLng north east longitude
+   * @param northEastLat north east latitude
    */
-  public void setBounds(Double northEastLat, Double northEastLng, Double southWestLat, Double southWestLng) {
+
+  public void setBounds(Double southWestLng, Double southWestLat, Double northEastLng, Double northEastLat) {
+
     bounds = new JOpenCageBounds();
     
     JOpenCageLatLng ne = new JOpenCageLatLng();
