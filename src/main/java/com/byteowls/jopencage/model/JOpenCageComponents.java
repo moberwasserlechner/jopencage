@@ -24,10 +24,12 @@ public class JOpenCageComponents {
   @JsonProperty("house_number")
   private String houseNumber;
   private String state;
+  private String region;
   @JsonProperty("political_union")
   private String politicalUnion;
   private String suburb;
   private String town;
+  private String village;
 
   public String getISO31661() {
     return iso31661;
@@ -83,5 +85,13 @@ public class JOpenCageComponents {
 
   public String getTown() {
     return town;
+  }
+
+  public String getRegion() {
+    return region;
+  }
+
+  public String getVillage() {
+    return village;
   }
 }
