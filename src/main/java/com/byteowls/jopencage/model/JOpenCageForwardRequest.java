@@ -16,6 +16,16 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
    */
   private String restrictToCountryCode;
 
+  private JOpenCageLatLng proximity;
+
+  public JOpenCageLatLng getProximity() {
+    return proximity;
+  }
+
+  public void setProximity(JOpenCageLatLng proximity) {
+    this.proximity = proximity;
+  }
+
   private List<String> queryParts = new ArrayList<>();
   private String queryPartSeparator = ",";
   
@@ -55,8 +65,11 @@ public class JOpenCageForwardRequest extends JOpenCageRequest {
     }
     
     parameter.put("countrycode", restrictToCountryCode);
-    
-    
+
+    if (proximity != null) {
+      parameter.put("proximity", proximity.getLat() + "," + proximity.getLng());
+    }
+
     return parameter;
   }
 
