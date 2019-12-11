@@ -131,6 +131,9 @@ For running the tests you have to use your *own* OpenCage API Key.
 
 * OPENCAGE\_API\_KEY ... Provide your own opencage api key using env variables. e.g. -DOPENCAGE\_API\_KEY=YourKey
 
+## Changelog
+See [CHANGELOG](https://github.com/moberwasserlechner/jopencage/blob/master/CHANGELOG.md).
+
 ## License
 
-Apache 2.0. Please see [LICENSE](https://github.com/moberwasserlechner/jopencage/blob/develop/LICENSE).
+Apache 2.0. Please see [LICENSE](https://github.com/moberwasserlechner/jopencage/blob/master/LICENSE).
