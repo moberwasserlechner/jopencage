@@ -1,6 +1,14 @@
 package com.byteowls.jopencage;
 
-import com.byteowls.jopencage.model.*;
+import com.byteowls.jopencage.model.JOpenCageCurrency;
+import com.byteowls.jopencage.model.JOpenCageForwardRequest;
+import com.byteowls.jopencage.model.JOpenCageITM;
+import com.byteowls.jopencage.model.JOpenCageLatLng;
+import com.byteowls.jopencage.model.JOpenCageMercator;
+import com.byteowls.jopencage.model.JOpenCageResponse;
+import com.byteowls.jopencage.model.JOpenCageResult;
+import com.byteowls.jopencage.model.JOpenCageReverseRequest;
+import com.byteowls.jopencage.model.JOpenCageSun;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -94,6 +102,20 @@ public class GeoCoderTests {
   }
 
   @Test
+  public void testComponentVillage() {
+    JOpenCageForwardRequest request = new JOpenCageForwardRequest("Kovalivka");
+    request.setLimit(1);
+    request.setNoAnnotations(true);
+
+    JOpenCageResponse response = jOpenCageGeocoder.forward(request);
+    Assert.assertNotNull(response);
+
+    for (JOpenCageResult r : response.getResults()) {
+      Assert.assertNotNull(r.getComponents().getVillage());
+    }
+  }
+
+  @Test
   public void testQiblaAnnotation() {
     JOpenCageForwardRequest request = new JOpenCageForwardRequest("Graz");
     request.setRestrictToCountryCode("at");
@@ -107,22 +129,6 @@ public class GeoCoderTests {
       Double qibla = r.getAnnotations().getQibla();
       Assert.assertNotNull(qibla);
       Assert.assertTrue(qibla >= 0 && qibla <= 360);
-    }
-  }
-
-  @Test
-  public void testOSGBAnnotation() {
-    JOpenCageForwardRequest request = new JOpenCageForwardRequest("London");
-    request.setRestrictToCountryCode("uk");
-    request.setLimit(1);
-    request.setNoAnnotations(false);
-
-    JOpenCageResponse response = jOpenCageGeocoder.forward(request);
-    Assert.assertNotNull(response);
-
-    for (JOpenCageResult r : response.getResults()) {
-      JOpenCageOSGB osgb = r.getAnnotations().getOSGB();
-      Assert.assertNotNull(osgb);
     }
   }
 

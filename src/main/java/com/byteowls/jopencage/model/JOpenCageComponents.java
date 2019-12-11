@@ -2,8 +2,8 @@ package com.byteowls.jopencage.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -15,6 +15,7 @@ public class JOpenCageComponents {
 
   @JsonProperty("_type")
   private String type;
+  private String continent;
   private String city;
   @JsonProperty("city_district")
   private String cityDistrict;
@@ -59,6 +60,10 @@ public class JOpenCageComponents {
 
   public String getType() {
     return type;
+  }
+
+  public String getContinent() {
+    return continent;
   }
 
   public String getCity() {
@@ -136,4 +141,5 @@ public class JOpenCageComponents {
   public String getVillage() {
     return village;
   }
+
 }
