@@ -11,75 +11,66 @@ This api provides a java client to the OpenCage geocoding service. https://openc
 
 Repository
 
-    <repositories>
-      <!-- ... other repository elements ... -->
-      <repository>
-        <snapshots>
-          <enabled>false</enabled>
-        </snapshots>
-        <id>central</id>
-        <name>bintray</name>
-        <url>http://jcenter.bintray.com</url>
-      </repository>
-    </repositories>
-    
-Dependency
-
-    <dependencies>
-      <!-- ... other dependency elements ... -->
-      <dependency>
-        <groupId>com.byteowls</groupId>
-        <artifactId>jopencage</artifactId>
-        <version>replace.with.version</version>
-      </dependency>
-    </dependencies>
-
+```xml
+<repositories>
+  <!-- ... other repository elements ... -->
+  <repository>
+    <snapshots>
+      <enabled>false</enabled>
+    </snapshots>
+    <id>central</id>
+    <name>bintray</name>
+    <url>https://jcenter.bintray.com</url>
+  </repository>
+</repositories>
+<dependencies>
+  <!-- ... other dependency elements ... -->
+  <dependency>
+    <groupId>com.byteowls</groupId>
+    <artifactId>jopencage</artifactId>
+    <version>replace.with.version</version>
+  </dependency>
+</dependencies>
+```
 
 ### Gradle
 
-Repository
+```gradle
+repositories {
+  jcenter()
+}
 
-
-    repositories {
-      jcenter()
-    }
-    // or 
-    repositories {
-      maven {
-        url  "http://jcenter.bintray.com" 
-      }
-    }
-     
-Dependency
-
-    dependencies {
-      compile ("com.byteowls:jopencage:replace.with.version")
-    }
+dependencies {
+  compile ("com.byteowls:jopencage:replace.with.version")
+}
+```
 
 ### Example
 
 Forward
 
+```java
+// In real live application the JOpenCageGeocoder should be a Singleton
+JOpenCageGeocoder jOpenCageGeocoder = new JOpenCageGeocoder(YOUR_API_KEY);
 
-    // In real live application the JOpenCageGeocoder should be a Singleton
-    JOpenCageGeocoder jOpenCageGeocoder = new JOpenCageGeocoder(YOUR_API_KEY);
-
-    JOpenCageForwardRequest request = new JOpenCageForwardRequest("Graz");
-    request.setMinConfidence(1);
-    request.setNoAnnotations(false);
-    request.setNoDedupe(true);
-    JOpenCageResponse response = jOpenCageGeocoder.forward(request);
-
+JOpenCageForwardRequest request = new JOpenCageForwardRequest("Graz");
+request.setMinConfidence(1);
+request.setNoAnnotations(false);
+request.setNoDedupe(true);
+JOpenCageResponse response = jOpenCageGeocoder.forward(request);
+```
 
 Reverse
 
-    // In real live application the JOpenCageGeocoder should be a Singleton
-    JOpenCageGeocoder jOpenCageGeocoder = new JOpenCageGeocoder(YOUR_API_KEY);
+```java
+// In real live application the JOpenCageGeocoder should be a Singleton
+JOpenCageGeocoder jOpenCageGeocoder = new JOpenCageGeocoder(YOUR_API_KEY);
 
-    JOpenCageReverseRequest request = new JOpenCageReverseRequest(-22.6792, 14.5272);
-    request.setNoAnnotations(true);
-    
-    JOpenCageResponse response = jOpenCageGeocoder.reverse(request);
+JOpenCageReverseRequest request = new JOpenCageReverseRequest(-22.6792, 14.5272);
+request.setNoAnnotations(true);
+
+JOpenCageResponse response = jOpenCageGeocoder.reverse(request);
+```
 
 ## Libraries
 
@@ -89,21 +80,6 @@ Reverse
 * slf4j
 
 ## Contribute
-
-### Setup Eclipse
-
-1. Fork repo
-2. Open command line
-3. Clone your fork `git@github.com:USERNAME/jopencage.git`
-4. `cd jopencage`
-5. Build eclipse meta data `./gradlew cleanEclipse eclipse`
-6. Open Eclipse
-7. File -> Import... -> General -> Existing Projects into Workspace
-8. Browse to your git repository
-9. Check the option "Search for nested projects"
-10. Press finish
-
-This should take not more than 1-2 minutes. You does not need to use any gradle eclipse plugins. 
 
 ### Fix a bug or create a new feature
 
