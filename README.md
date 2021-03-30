@@ -86,12 +86,13 @@ JOpenCageResponse response = jOpenCageGeocoder.reverse(request);
 Please do not mix more than one issue in a feature branch. Each feature/bugfix should have its own branch and its own Pull Request (PR).
 
 1. Create a issue and describe what you want to do at [Issue Tracker](https://github.com/moberwasserlechner/jopencage/issues)
-2. Create your feature branch (`git checkout -b feature/my-feature` or `git checkout -b bugfix/my-bugfix`)
-3. Test your changes to the best of your ability.
-4. Add a demo view to the demo application 
-5. Commit your changes (`git commit -m 'Describe feature or bug'`)
-6. Push to the branch (`git push origin feature/my-feature`)
-7. Create a Github Pull Request
+2. Clone this repository
+3. Create your feature branch (`git checkout -b feature/my-feature` or `git checkout -b bugfix/my-bugfix`)
+4. Test your changes to the best of your ability. (Unit Tests)
+5. Add a demo view to the demo application 
+6. Commit your changes (`git commit -m 'Describe feature or bug'`)
+7. Push to the branch (`git push origin feature/my-feature`) of your cloned
+8. Create a Github Pull Request (PR)
 
 ### Code Style
 
