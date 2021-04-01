@@ -38,4 +38,12 @@ public class ModelTests {
     Assert.assertEquals("2015-05-03 14:29", formattedDate);
   }
 
+  @Test
+  public void testResponseMappingOfUnmappedFields() throws JsonParseException, JsonMappingException, IOException {  ObjectMapper mapper = new ObjectMapper();
+    JOpenCageResponse jOpenCageResponse = mapper.readValue(getClass().getResourceAsStream("toadd"), JOpenCageResponse.class);
+    Assert.assertNotNull(jOpenCageResponse);
+
+    Assert.assertNotNull(jOpenCageResponse.getResults().get(0).getComponents().getUnmappedFields());
+    Assert.assertEquals("Kunsthaus", jOpenCageResponse.getResults().get(0).getComponents().getUnmappedFields().get("museum"));
+  }
 }
