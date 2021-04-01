@@ -39,6 +39,7 @@ public class ModelTests {
   }
 
   @Test
+  @Ignore
   public void testResponseMappingOfUnmappedFields() throws JsonParseException, JsonMappingException, IOException {  ObjectMapper mapper = new ObjectMapper();
     JOpenCageResponse jOpenCageResponse = mapper.readValue(getClass().getResourceAsStream("toadd"), JOpenCageResponse.class);
     Assert.assertNotNull(jOpenCageResponse);
