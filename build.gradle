@@ -1,45 +1,44 @@
 plugins {
-  id "com.jfrog.bintray" version "1.8.4"
+	id "com.jfrog.bintray" version "1.8.5"
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
 apply plugin: 'maven-publish'
 
 repositories {
-  jcenter()
+	jcenter()
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 dependencies {
-  implementation "org.slf4j:slf4j-api:${slf4jVersion}"
-  implementation "org.apache.httpcomponents:httpclient:${httpClientVersion}"
-  implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
-  implementation "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
-  implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
+	implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+	implementation "org.apache.httpcomponents:httpclient:${httpClientVersion}"
+	implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+	implementation "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
+	implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
 
-  // Tests
-  testImplementation "junit:junit:4.12"
-  testRuntimeOnly "org.slf4j:slf4j-simple:${slf4jVersion}"
+	// Tests
+	testImplementation("org.slf4j:slf4j-simple:${slf4jVersion}")
+	testImplementation(platform("org.junit:junit-bom:5.7.1"))
+	testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
 // custom tasks for creating source/javadoc jars
 task sourcesJar(type: Jar, dependsOn: classes) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
+	classifier = 'sources'
+	from sourceSets.main.allSource
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
+	classifier = 'javadoc'
+	from javadoc.destinationDir
 }
 
 // add javadoc/source jar tasks as artifacts
 artifacts {
-    archives sourcesJar, javadocJar
+	archives sourcesJar, javadocJar
 }
 
 // ###################################
@@ -47,14 +46,14 @@ artifacts {
 // ###################################
 
 publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
+	publications {
+		mavenJava(MavenPublication) {
+			from components.java
 
-            artifact sourcesJar
-            artifact javadocJar
-        }
-    }
+			artifact sourcesJar
+			artifact javadocJar
+		}
+	}
 }
 
 // ##########################
@@ -62,35 +61,39 @@ publishing {
 // ##########################
 
 bintray {
-  user = project.hasProperty('BINTRAY_USER') ? BINTRAY_USER : null //this usually comes from gradle.properties file in ~/.gradle
-  key = project.hasProperty('BINTRAY_API_KEY') ? BINTRAY_API_KEY : null //this usually comes from gradle.properties file in ~/.gradle
+	user = project.hasProperty('BINTRAY_USER') ? BINTRAY_USER : null //this usually comes from gradle.properties file in ~/.gradle
+	key = project.hasProperty('BINTRAY_API_KEY') ? BINTRAY_API_KEY : null //this usually comes from gradle.properties file in ~/.gradle
 
-  // configurations = ['archives'] //When uploading configuration files
-  // - OR -
-  publications = ['mavenJava'] //When uploading Maven-based publication files
+	// configurations = ['archives'] //When uploading configuration files
+	// - OR -
+	publications = ['mavenJava'] //When uploading Maven-based publication files
 
+	dryRun = false //Whether to run this as dry-run, without deploying
+	publish = false //If version should be auto published after an upload
 
-  dryRun = false //Whether to run this as dry-run, without deploying
-  publish = false //If version should be auto published after an upload
+	// Package configuration. The plugin will use the repo and name properties to check if the package already exists.
+	// In that case, there's no need to configure the other package properties (like userOrg, desc, etc).
+	pkg {
+		repo = 'maven'
+		name = 'jopencage'
+		//userOrg = 'byteowls' //An optional organization name when the repo belongs to one of the user's orgs
+		desc = 'OpenCage geocoding client for Java'
+		websiteUrl = 'https://github.com/moberwasserlechner/jopencage'
+		issueTrackerUrl = 'https://github.com/moberwasserlechner/jopencage/issues'
+		vcsUrl = 'https://github.com/moberwasserlechner/jopencage.git'
+		licenses = ['Apache-2.0']
+		labels = ['geocoding', 'opencage', 'openstreetmap']
+		publicDownloadNumbers = true
 
-  // Package configuration. The plugin will use the repo and name properties to check if the package already exists.
-  // In that case, there's no need to configure the other package properties (like userOrg, desc, etc).
-  pkg {
-    repo = 'maven'
-    name = 'jopencage'
-    //userOrg = 'byteowls' //An optional organization name when the repo belongs to one of the user's orgs
-    desc = 'OpenCage geocoding client for Java'
-    websiteUrl = 'https://github.com/moberwasserlechner/jopencage'
-    issueTrackerUrl = 'https://github.com/moberwasserlechner/jopencage/issues'
-    vcsUrl = 'https://github.com/moberwasserlechner/jopencage.git'
-    licenses = ['Apache-2.0']
-    labels = ['geocoding', 'opencage', 'openstreetmap']
-    publicDownloadNumbers = true
+		version {
+			name = project.version //Bintray logical version name
+			// desc = 'optional'
+			vcsTag = project.version
+		}
+	}
+}
 
-    version {
-      name = project.version //Bintray logical version name
-      // desc = 'optional'
-      vcsTag = project.version
-    }
-  }
+test {
+	useJUnitPlatform()
+	systemProperties = System.properties
 }

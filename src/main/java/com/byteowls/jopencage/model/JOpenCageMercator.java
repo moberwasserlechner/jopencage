@@ -3,15 +3,15 @@ package com.byteowls.jopencage.model;
 
 public class JOpenCageMercator {
 
-  private Double x;
-  private Double y;
+    private Double x;
+    private Double y;
 
-  public Double getX() {
-    return x;
-  }
+    public Double getX() {
+        return x;
+    }
 
-  public Double getY() {
-    return y;
-  }
+    public Double getY() {
+        return y;
+    }
 
 }

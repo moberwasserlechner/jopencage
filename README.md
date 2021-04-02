@@ -1,5 +1,5 @@
 # JOpenCage 
-[![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/jopencage.svg)](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion) [![Travis](https://img.shields.io/travis/moberwasserlechner/jopencage/master.svg?maxAge=2592000)](https://travis-ci.org/moberwasserlechner/jopencage) [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Follow&style=flat-square)](https://twitter.com/michaelowl_web) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?style=flat-square)](https://www.paypal.me/moberwasserlechner)
+[![Download](https://img.shields.io/bintray/v/moberwasserlechner/maven/jopencage.svg)](https://bintray.com/moberwasserlechner/maven/jopencage/_latestVersion) ![Tests](https://github.com/moberwasserlechner/jopencage/workflows/UnitTests/badge.svg) [![Twitter Follow](https://img.shields.io/twitter/follow/michaelowl_web.svg?style=social&label=Follow&style=flat-square)](https://twitter.com/michaelowl_web) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?style=flat-square)](https://www.paypal.me/moberwasserlechner)
 
 This api provides a java client to the OpenCage geocoding service. https://opencagedata.com/api
 
@@ -41,7 +41,7 @@ repositories {
 }
 
 dependencies {
-  compile ("com.byteowls:jopencage:replace.with.version")
+  implementation "com.byteowls:jopencage:REPLACE.WITH.VERSION"
 }
 ```
 
@@ -79,34 +79,23 @@ JOpenCageResponse response = jOpenCageGeocoder.reverse(request);
 * FasterXml Jackson
 * slf4j
 
-## Contribute
-
-### Fix a bug or create a new feature
-
-Please do not mix more than one issue in a feature branch. Each feature/bugfix should have its own branch and its own Pull Request (PR).
-
-1. Create a issue and describe what you want to do at [Issue Tracker](https://github.com/moberwasserlechner/jopencage/issues)
-2. Fork and clone this repository
-3. Create your feature branch (`git checkout -b feature/my-feature` or `git checkout -b bugfix/my-bugfix`)
-4. Test your changes to the best of your ability. (Unit Tests)
-5. Add a demo view to the demo application 
-6. Commit your changes (`git commit -m 'Describe feature or bug'`)
-7. Push to the branch (`git push origin feature/my-feature`) of your cloned
-8. Create a Github Pull Request (PR)
-
-### Code Style
-
-This repo includes a .editorconfig file, which your IDE should pickup automatically.
-
-If not: Please use the sun coding convention. Please do not use tabs at all!
-
-Try to change only parts your feature or bugfix requires.
-
 ## Testing
 
-For running the tests you have to use your *own* OpenCage API Key.
+For running the tests you have to use your *OWN* OpenCage API Key. Get a free trail key at https://opencagedata.com/dashboard#api-keys
 
-* OPENCAGE\_API\_KEY ... Provide your own opencage api key using env variables. e.g. -DOPENCAGE\_API\_KEY=YourKey
+```
+./gradlew -DOPENCAGE_API_KEY=ABCDEFG_YOUR_KEY test
+```
+
+## Gradle
+
+```
+./gradlew wrapper --gradle-version 6.8.3
+```
+
+## Contribute
+
+See [Contribution Guidelines](https://github.com/moberwasserlechner/jopencage/blob/master/.github/CONTRIBUTING.md).
 
 ## Changelog
 See [CHANGELOG](https://github.com/moberwasserlechner/jopencage/blob/master/CHANGELOG.md).
@@ -114,3 +103,7 @@ See [CHANGELOG](https://github.com/moberwasserlechner/jopencage/blob/master/CHAN
 ## License
 
 Apache 2.0. Please see [LICENSE](https://github.com/moberwasserlechner/jopencage/blob/master/LICENSE).
+
+## BYTEOWLS Software & Consulting
+
+This plugin is powered by [BYTEOWLS Software & Consulting](https://byteowls.com)
