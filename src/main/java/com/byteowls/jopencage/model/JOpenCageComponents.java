@@ -1,5 +1,9 @@
 package com.byteowls.jopencage.model;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -42,6 +46,10 @@ public class JOpenCageComponents {
   private String suburb;
   private String town;
   private String village;
+  private Map<String, Object> unmappedFields = new LinkedHashMap<>();
+
+  @JsonAnySetter
+  void setUnmappedFields(String key, Object value) { unmappedFields.put(key, value); }
 
   /**
    * @deprecated use {@link #getIso31661Alpha2()} instead
@@ -141,5 +149,7 @@ public class JOpenCageComponents {
   public String getVillage() {
     return village;
   }
+
+  public Map<String, Object> getUnmappedFields() { return unmappedFields; }
 
 }
