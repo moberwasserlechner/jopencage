@@ -5,15 +5,15 @@ package com.byteowls.jopencage.model;
  */
 public class JOpenCageITM {
 
-  private Double easting;
-  private Double northing;
+    private Double easting;
+    private Double northing;
 
-  public Double getEasting() {
-    return easting;
-  }
+    public Double getEasting() {
+        return easting;
+    }
 
-  public Double getNorthing() {
-    return northing;
-  }
+    public Double getNorthing() {
+        return northing;
+    }
 
 }

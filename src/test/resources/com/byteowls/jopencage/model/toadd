@@ -1,0 +1,98 @@
+{
+   "licenses" : [
+      {
+         "name" : "CC-BY-SA",
+         "url" : "http://creativecommons.org/licenses/by-sa/3.0/"
+      },
+      {
+         "name" : "ODbL",
+         "url" : "http://opendatacommons.org/licenses/odbl/summary/"
+      }
+   ],
+   "rate" : {
+      "limit" : 2500,
+      "remaining" : 2458,
+      "reset" : 1430697600
+   },
+   "results" : [
+      {
+         "annotations" : {
+            "DMS" : {
+               "lat" : "47\u00b0 4' 16.71618'' N",
+               "lng" : "15\u00b0 26' 2.84210'' E"
+            },
+            "MGRS" : "33TWN3296013180",
+            "Maidenhead" : "JN77rb27cc",
+            "Mercator" : {
+               "x" : 1718118.692,
+               "y" : 5922420.664
+            },
+            "OSM" : {
+               "url" : "http://www.openstreetmap.org/?mlat=47.07131&mlon=15.43412#map=17/47.07131/15.43412"
+            },
+            "callingcode" : 43,
+            "geohash" : "u26gz1nf30hjdzr6puq4",
+            "sun" : {
+               "rise" : {
+                  "astronomical" : 1430616600,
+                  "civil" : 1430622180,
+                  "nautical" : 1430619600
+               },
+               "set" : {
+                  "astronomical" : 1430684520,
+                  "civil" : 1430678880,
+                  "nautical" : 1430681460
+               }
+            },
+            "timezone" : {
+               "name" : "Europe/Vienna",
+               "now_in_dst" : 1,
+               "offset_sec" : 7200,
+               "offset_string" : 200,
+               "short_name" : "CEST"
+            },
+            "what3words" : {
+               "words" : "volcano.starts.includes"
+            }
+         },
+         "bounds" : {
+            "northeast" : {
+               "lat" : 47.071625,
+               "lng" : 15.4343394
+            },
+            "southwest" : {
+               "lat" : 47.0709806,
+               "lng" : 15.4336863
+            }
+         },
+         "components" : {
+            "city" : "Graz",
+            "city_district" : "Lend",
+            "country" : "Austria",
+            "country_code" : "at",
+            "county" : "Graz",
+            "house_number" : "1",
+            "museum" : "Kunsthaus",
+            "postcode" : "8020",
+            "road" : "Lendkai",
+            "state" : "Styria"
+         },
+         "confidence" : 10,
+         "formatted" : "Kunsthaus, Lendkai 1, 8020 Graz, Austria",
+         "geometry" : {
+            "lat" : 47.07131005,
+            "lng" : 15.4341228066894
+         }
+      }
+   ],
+   "status" : {
+      "code" : 200,
+      "message" : "OK"
+   },
+   "thanks" : "For using an OpenCage Data API",
+   "timestamp" : {
+      "created_http" : "Sun, 03 May 2015 12:29:49 GMT",
+      "created_unix" : 1430656189
+   },
+   "total_results" : 1
+}

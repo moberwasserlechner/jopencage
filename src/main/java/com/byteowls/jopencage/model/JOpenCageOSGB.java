@@ -5,28 +5,28 @@ package com.byteowls.jopencage.model;
  */
 public class JOpenCageOSGB {
 
-  private Double easting;
-  private String gridref;
-  private Double northing;
+    private Double easting;
+    private String gridref;
+    private Double northing;
 
-  public Double getEasting() {
-    return easting;
-  }
+    public Double getEasting() {
+        return easting;
+    }
 
-  public String getGridref() {
-    return gridref;
-  }
+    public String getGridref() {
+        return gridref;
+    }
 
-  public Double getNorthing() {
-    return northing;
-  }
+    public Double getNorthing() {
+        return northing;
+    }
 
-  @Override
-  public String toString() {
-    return "JOpenCageOSGB{" +
-      "easting=" + easting +
-      ", gridref='" + gridref + '\'' +
-      ", northing=" + northing +
-      '}';
-  }
+    @Override
+    public String toString() {
+        return "JOpenCageOSGB{" +
+            "easting=" + easting +
+            ", gridref='" + gridref + '\'' +
+            ", northing=" + northing +
+            '}';
+    }
 }
