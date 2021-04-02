@@ -38,6 +38,9 @@ public class JOpenCageAnnotations {
     @JsonProperty("OSM")
     private JOpenCageOSM OSM;
 
+    @JsonProperty("FIPS")
+    private JOpenCageFIPS FIPS;
+
     /**
      * the telephone calling code for the country of the result.
      */
@@ -169,5 +172,12 @@ public class JOpenCageAnnotations {
      */
     public JOpenCageITM getITM() {
         return ITM;
+    }
+
+    /**
+     * Contains the US Federal Information Processing Standards (FIPS) code for the state (two digit) and county (five digit) of the center point of the result, if we can determine it. This annotation is applied only for locations in the United States and associated territories. The values are strings - not numbers - and can have leading zeros.
+     */
+    public JOpenCageFIPS getFIPS() {
+        return FIPS;
     }
 }
