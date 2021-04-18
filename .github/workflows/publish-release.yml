@@ -24,4 +24,4 @@ jobs:
               run: |
                   NEW_VERSION=$(echo "${GITHUB_REF}" | cut -d "/" -f3)
                   echo "New version: ${NEW_VERSION}"
-                  ./gradlew -Pversion=${NEW_VERSION} -PMAVEN_SIGNING_KEY_ID=${{ secrets.MAVEN_SIGNING_KEY_ID }} -PMAVEN_SIGNING_KEY=${{ secrets.MAVEN_SIGNING_KEY }} -PMAVEN_SIGNING_PASSWORD=${{ secrets.MAVEN_SIGNING_PASSWORD }} -PMAVEN_CENTRAL_USERNAME=${{ secrets.MAVEN_CENTRAL_USERNAME }} -PMAVEN_CENTRAL_PASSWORD=${{ secrets.MAVEN_CENTRAL_PASSWORD }} publish
+                  ./gradlew -Pversion=${NEW_VERSION} -PMAVEN_SIGNING_KEY_ID=${{ secrets.MAVEN_SIGNING_KEY_ID }} -PMAVEN_SIGNING_KEY=${{ secrets.MAVEN_SIGNING_KEY }} -PMAVEN_SIGNING_PASSWORD=${{ secrets.MAVEN_SIGNING_PASSWORD }} -PMAVEN_CENTRAL_USERNAME=${{ secrets.MAVEN_CENTRAL_USERNAME }} -PMAVEN_CENTRAL_PASSWORD=${{ secrets.MAVEN_CENTRAL_PASSWORD }} publish --stacktrace
