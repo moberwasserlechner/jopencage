@@ -1,12 +1,11 @@
 plugins {
-	id "com.jfrog.bintray" version "1.8.5"
+	id 'java-library'
+	id 'maven-publish'
+	id 'signing'
 }
 
-apply plugin: 'java'
-apply plugin: 'maven-publish'
-
 repositories {
-	jcenter()
+	mavenCentral()
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -25,71 +24,66 @@ dependencies {
 	testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
-// custom tasks for creating source/javadoc jars
-task sourcesJar(type: Jar, dependsOn: classes) {
-	classifier = 'sources'
-	from sourceSets.main.allSource
+java {
+	withJavadocJar()
+	withSourcesJar()
 }
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-	classifier = 'javadoc'
-	from javadoc.destinationDir
-}
-
-// add javadoc/source jar tasks as artifacts
-artifacts {
-	archives sourcesJar, javadocJar
-}
-
-// ###################################
-// ### Publish to local maven repo ###
-// ###################################
 
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
 			from components.java
-
-			artifact sourcesJar
-			artifact javadocJar
+			pom {
+				name = 'JOpenCage'
+				description = 'Java Client for the OpenCage REST API'
+				url = 'https://github.com/moberwasserlechner/jopencage'
+				licenses {
+					license {
+						name = 'The Apache License, Version 2.0'
+						url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+					}
+				}
+				developers {
+					developer {
+						id = 'moberwasserlechner'
+						name = 'Michael Oberwasserlechner'
+						email = 'm.oberwasserlechner@byteowls.com'
+					}
+				}
+				scm {
+					connection = 'scm:git:https://github.com/moberwasserlechner/jopencage'
+					developerConnection = 'scm:git:https://github.com/moberwasserlechner/jopencage'
+					url = 'https://github.com/moberwasserlechner/jopencage'
+				}
+			}
+		}
+	}
+	repositories {
+		maven {
+			// change URLs to point to your repos, e.g. http://my.org/repo
+			def releasesRepoUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+			def snapshotsRepoUrl = "https://s01.oss.sonatype.org/content/repositories/snapshots/"
+			url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+			credentials {
+				username = project.findProperty("MAVEN_CENTRAL_USERNAME") ?: System.getenv("MAVEN_CENTRAL_USERNAME")
+				password = project.findProperty("MAVEN_CENTRAL_PASSWORD") ?: System.getenv("MAVEN_CENTRAL_PASSWORD")
+			}
 		}
 	}
 }
 
-// ##########################
-// ### Publish to bintray ###
-// ##########################
+signing {
+	def signingKeyId = (String) project.findProperty("MAVEN_SIGNING_KEY_ID") ?: System.getenv("MAVEN_SIGNING_KEY_ID")
+	def signingKey = (String) project.findProperty("MAVEN_SIGNING_KEY") ?: System.getenv("MAVEN_SIGNING_KEY")
+	def signingPassword = (String) project.findProperty("MAVEN_SIGNING_PASSWORD") ?: System.getenv("MAVEN_SIGNING_PASSWORD")
+	useInMemoryPgpKeys(signingKeyId, signingKey, signingPassword)
+	sign publishing.publications.mavenJava
+}
 
-bintray {
-	user = project.hasProperty('BINTRAY_USER') ? BINTRAY_USER : null //this usually comes from gradle.properties file in ~/.gradle
-	key = project.hasProperty('BINTRAY_API_KEY') ? BINTRAY_API_KEY : null //this usually comes from gradle.properties file in ~/.gradle
 
-	// configurations = ['archives'] //When uploading configuration files
-	// - OR -
-	publications = ['mavenJava'] //When uploading Maven-based publication files
-
-	dryRun = false //Whether to run this as dry-run, without deploying
-	publish = false //If version should be auto published after an upload
-
-	// Package configuration. The plugin will use the repo and name properties to check if the package already exists.
-	// In that case, there's no need to configure the other package properties (like userOrg, desc, etc).
-	pkg {
-		repo = 'maven'
-		name = 'jopencage'
-		//userOrg = 'byteowls' //An optional organization name when the repo belongs to one of the user's orgs
-		desc = 'OpenCage geocoding client for Java'
-		websiteUrl = 'https://github.com/moberwasserlechner/jopencage'
-		issueTrackerUrl = 'https://github.com/moberwasserlechner/jopencage/issues'
-		vcsUrl = 'https://github.com/moberwasserlechner/jopencage.git'
-		licenses = ['Apache-2.0']
-		labels = ['geocoding', 'opencage', 'openstreetmap']
-		publicDownloadNumbers = true
-
-		version {
-			name = project.version //Bintray logical version name
-			// desc = 'optional'
-			vcsTag = project.version
-		}
+javadoc {
+	if (JavaVersion.current().isJava9Compatible()) {
+		options.addBooleanOption('html5', true)
 	}
 }
 

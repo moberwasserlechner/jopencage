@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [1.4.0] - 2021-04-02
 
+### Important
+
+- JCenter is shutting down! Lib was migrated to MavenCentral (#40)
+
 ### Added
 - Hold unmapped component fields in a `java.util.Map` (#38) thx [@Dexilon](https://github.com/Dexilon)
 - Add FIPS mapping (#35)
