@@ -51,8 +51,8 @@ publishing {
 					}
 				}
 				scm {
-					connection = 'scm:git:https://github.com/moberwasserlechner/jopencage'
-					developerConnection = 'scm:git:https://github.com/moberwasserlechner/jopencage'
+					connection = 'scm:git:git://github.com/moberwasserlechner/jopencage.git'
+					developerConnection = 'scm:git:ssh://github.com/moberwasserlechner/jopencage.git'
 					url = 'https://github.com/moberwasserlechner/jopencage'
 				}
 			}
