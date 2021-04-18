@@ -1,5 +1,7 @@
 # JOpenCage 
-![Tests](https://github.com/moberwasserlechner/jopencage/workflows/UnitTests/badge.svg) [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?style=flat-square)](https://www.paypal.me/moberwasserlechner)
+[![Maven Central](https://img.shields.io/maven-central/v/com.byteowls/jopencage.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.byteowls%22%20AND%20a:%22jopencage%22)
+![Tests](https://github.com/moberwasserlechner/jopencage/workflows/UnitTests/badge.svg)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/moberwasserlechner)
 
 This api provides a java client to the OpenCage geocoding service. https://opencagedata.com/api
 
