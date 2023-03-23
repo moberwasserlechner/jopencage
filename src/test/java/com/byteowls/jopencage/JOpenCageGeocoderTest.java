@@ -4,6 +4,7 @@ import com.byteowls.jopencage.model.JOpenCageForwardRequest;
 import com.byteowls.jopencage.model.JOpenCageLatLng;
 import com.byteowls.jopencage.model.JOpenCageResponse;
 import com.byteowls.jopencage.model.JOpenCageReverseRequest;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -14,8 +15,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class JOpenCageGeocoderTest extends JOpenCageBaseApiTest {
 
@@ -67,6 +67,15 @@ class JOpenCageGeocoderTest extends JOpenCageBaseApiTest {
 
         JOpenCageResponse response = jOpenCageGeocoder.reverse(request);
         assertNotNull(response);
+    }
+
+    @Test
+    public void reverseDecimalWithLargeScale() {
+        JOpenCageReverseRequest request = new JOpenCageReverseRequest(51.512173691848446, -0.0004923223308081751);
+        JOpenCageResponse response = jOpenCageGeocoder.reverse(request);
+        assertNotNull(response);
+        assertFalse(response.getResults().isEmpty());
+        assertEquals("gb", response.getResults().get(0).getComponents().getCountryCode());
     }
 
     @ParameterizedTest

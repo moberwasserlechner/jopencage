@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- Decimal numbers with large scale are converted to String using the E notation, leading to incorrect results with reverse geocoding.
+
 ## [1.4.0] - 2021-04-18
 
 ### Important
