@@ -5,14 +5,14 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map.Entry;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.client.HttpResponseException;
-import org.apache.http.client.ResponseHandler;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.utils.URIBuilder;
-import org.apache.http.impl.client.AbstractResponseHandler;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClientBuilder;
+import org.apache.hc.client5.http.HttpResponseException;
+import org.apache.hc.client5.http.classic.methods.HttpGet;
+import org.apache.hc.client5.http.impl.classic.AbstractHttpClientResponseHandler;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
+import org.apache.hc.core5.http.HttpEntity;
+import org.apache.hc.core5.http.io.HttpClientResponseHandler;
+import org.apache.hc.core5.net.URIBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -84,7 +84,7 @@ public class JOpenCageGeocoder {
             try (CloseableHttpClient httpclient = HttpClientBuilder.create().build()) {
                 HttpGet getRequest = new HttpGet(url);
 
-                ResponseHandler<JOpenCageResponse> rh = new AbstractResponseHandler<JOpenCageResponse>() {
+              HttpClientResponseHandler <JOpenCageResponse> rh = new AbstractHttpClientResponseHandler<JOpenCageResponse>() {
                     @Override
                     public JOpenCageResponse handleEntity(HttpEntity entity) throws IOException {
                         ObjectMapper mapper = new ObjectMapper();

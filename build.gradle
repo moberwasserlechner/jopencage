@@ -12,14 +12,14 @@ sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
 dependencies {
-	implementation "org.slf4j:slf4j-api:${slf4jVersion}"
-	implementation "org.apache.httpcomponents:httpclient:${httpClientVersion}"
+	//implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+	implementation "org.apache.httpcomponents.client5:httpclient5:${httpClientVersion}"
 	implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
 	implementation "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
 	implementation "com.fasterxml.jackson.core:jackson-annotations:${jacksonVersion}"
 
 	// Tests
-	testImplementation("org.slf4j:slf4j-simple:${slf4jVersion}")
+	//testImplementation("org.slf4j:slf4j-simple:${slf4jVersion}")
 	testImplementation(platform("org.junit:junit-bom:5.7.1"))
 	testImplementation("org.junit.jupiter:junit-jupiter")
 }
