@@ -1,7 +1,6 @@
 # JOpenCage 
 [![Maven Central](https://img.shields.io/maven-central/v/com.byteowls/jopencage.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.byteowls%22%20AND%20a:%22jopencage%22)
 ![Tests](https://github.com/moberwasserlechner/jopencage/workflows/UnitTests/badge.svg)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/moberwasserlechner)
 
 This api provides a java client to the OpenCage geocoding service. https://opencagedata.com/api
 
@@ -59,10 +58,10 @@ JOpenCageResponse response = jOpenCageGeocoder.reverse(request);
 
 ## Testing
 
-For running the tests you have to use your *OWN* OpenCage API Key. Get a free trail key at https://opencagedata.com/dashboard#api-keys
+For running the tests you have to use your *OWN* OpenCage API Key. Get a free trial key at https://opencagedata.com/dashboard#api-keys
 
 ```
-./gradlew -DOPENCAGE_API_KEY=ABCDEFG_YOUR_KEY test
+./gradlew -DOPENCAGE_API_KEY=<your apikey> test
 ```
 
 ## Gradle
@@ -81,12 +80,6 @@ See [CHANGELOG](https://github.com/moberwasserlechner/jopencage/blob/master/CHAN
 ## License
 
 Apache 2.0. Please see [LICENSE](https://github.com/moberwasserlechner/jopencage/blob/master/LICENSE).
-
-## BYTEOWLS Software & Consulting
-
-This plugin is powered by [BYTEOWLS Software & Consulting](https://byteowls.com).
-
-If you need extended support for this project like critical changes or releases ahead of schedule. Feel free to contact us for a consulting offer.
 
 ## Disclaimer
 

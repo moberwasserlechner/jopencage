@@ -6,8 +6,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.4.1] - 2023-07-03
+
 ### Fixed
 - Decimal numbers with large scale are converted to String using the E notation, leading to incorrect results with reverse geocoding.
+- Coerce latitude/longitude to String preventing E notation [#44](https://github.com/moberwasserlechner/jopencage/issues/44) thx [@lpellegr](https://github.com/lpellegr)
+- Chores: Fixed SSL and AllowAllHostNameVerifier [#43](https://github.com/moberwasserlechner/jopencage/pull/43) thx [@damade](https://github.com/damade)
 
 ## [1.4.0] - 2021-04-18
 
@@ -49,7 +53,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Bug fix bounds on forward request (#27) 
 
-[Unreleased]: https://github.com/moberwasserlechner/jopencage/compare/1.4.0...HEAD
+[Unreleased]: https://github.com/moberwasserlechner/jopencage/compare/1.4.1...master
+[1.4.1]: https://github.com/moberwasserlechner/jopencage/compare/1.4.0...1.4.1
 [1.4.0]: https://github.com/moberwasserlechner/jopencage/compare/1.3.0...1.4.0
 [1.3.0]: https://github.com/moberwasserlechner/jopencage/compare/1.2.1...1.3.0
 [1.2.1]: https://github.com/moberwasserlechner/jopencage/releases/tag/1.2.1

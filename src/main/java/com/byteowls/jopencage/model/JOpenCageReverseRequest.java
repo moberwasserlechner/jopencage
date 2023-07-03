@@ -1,13 +1,20 @@
 package com.byteowls.jopencage.model;
 
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.Locale;
 import java.util.Map;
 
 public class JOpenCageReverseRequest extends JOpenCageRequest {
 
     // A latitude/longitude number with seventh decimal place is worth up to 1.11cm
     private static final ThreadLocal<DecimalFormat> FORMATTER =
-        ThreadLocal.withInitial(() -> new DecimalFormat("##.#######"));
+        ThreadLocal.withInitial(() -> {
+            DecimalFormat decimalFormat = new DecimalFormat("##.#######");
+            // make sure the formatter does not use the system language
+            decimalFormat.setDecimalFormatSymbols(DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+            return decimalFormat;
+        });
 
     private final Double latitude;
     private final Double longitude;
