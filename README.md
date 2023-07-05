@@ -4,6 +4,10 @@
 
 This api provides a java client to the OpenCage geocoding service. https://opencagedata.com/api
 
+## End of life
+
+This repository reached its end of life, please refer to https://github.com/OpenCageData/jopencage for up-to-date releases.
+
 ## Usage
 
 Maven
