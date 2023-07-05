@@ -58,7 +58,7 @@ JOpenCageResponse response = jOpenCageGeocoder.reverse(request);
 
 ## Testing
 
-For running the tests you have to use your *OWN* OpenCage API Key. Get a free trial key at https://opencagedata.com/dashboard#api-keys
+For running the tests you have to use your *OWN* OpenCage Geocoding API Key. Get a free trial key at https://opencagedata.com
 
 ```
 ./gradlew -DOPENCAGE_API_KEY=<your apikey> test
@@ -72,15 +72,14 @@ For running the tests you have to use your *OWN* OpenCage API Key. Get a free tr
 
 ## Contribute
 
-See [Contribution Guidelines](https://github.com/moberwasserlechner/jopencage/blob/master/.github/CONTRIBUTING.md).
+See [Contribution Guidelines](jopencage/blob/master/.github/CONTRIBUTING.md).
 
 ## Changelog
-See [CHANGELOG](https://github.com/moberwasserlechner/jopencage/blob/master/CHANGELOG.md).
+See [CHANGELOG](jopencage/blob/master/CHANGELOG.md).
 
 ## License
 
-Apache 2.0. Please see [LICENSE](https://github.com/moberwasserlechner/jopencage/blob/master/LICENSE).
+Apache 2.0. Please see [LICENSE](jopencage/blob/master/LICENSE).
 
-## Disclaimer
-
-We have no business relation to OpenCage.
+## History
+Until July 2023 this library was maintained by [Michael Oberwasserlechner](https://github.com/moberwasserlechner). At his request due to lack of time to work on it the libary was then taken over by OpenCage GmbH. Thanks, Michael!
