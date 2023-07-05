@@ -72,10 +72,10 @@ For running the tests you have to use your *OWN* OpenCage Geocoding API Key. Get
 
 ## Contribute
 
-See [Contribution Guidelines](jopencage/blob/master/.github/CONTRIBUTING.md).
+See [Contribution Guidelines](https://github.com/OpenCageData/jopencage/blob/master/.github/CONTRIBUTING.md).
 
 ## Changelog
-See [CHANGELOG](jopencage/blob/master/CHANGELOG.md).
+See [CHANGELOG](https://github.com/OpenCageData/jopencage/blob/master/CHANGELOG.md).
 
 ## License
 
