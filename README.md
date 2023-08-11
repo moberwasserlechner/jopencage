@@ -1,6 +1,7 @@
-# JOpenCage 
-[![Maven Central](https://img.shields.io/maven-central/v/com.byteowls/jopencage.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22com.byteowls%22%20AND%20a:%22jopencage%22)
-![Tests](https://github.com/moberwasserlechner/jopencage/workflows/UnitTests/badge.svg)
+# JOpenCage
+
+[![Maven Central](https://img.shields.io/maven-central/v/com.byteowls/jopencage.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/com.byteowls/jopencage/1.4.0)
+[![UnitTests](https://github.com/OpenCageData/jopencage/actions/workflows/unit-tests.yml/badge.svg)](https://github.com/OpenCageData/jopencage/actions)
 
 This api provides a java client to the OpenCage geocoding service. https://opencagedata.com/api
 
@@ -51,14 +52,14 @@ JOpenCageResponse response = jOpenCageGeocoder.reverse(request);
 
 ## Libraries
 
-* JDK 8+
-* Apache Http Client
-* FasterXml Jackson
-* Slf4j
+- JDK 8+
+- Apache Http Client
+- FasterXml Jackson
+- Slf4j
 
 ## Testing
 
-For running the tests you have to use your *OWN* OpenCage Geocoding API Key. Get a free trial key at https://opencagedata.com
+For running the tests you have to use your _OWN_ OpenCage Geocoding API Key. Get a free trial key at https://opencagedata.com
 
 ```
 ./gradlew -DOPENCAGE_API_KEY=<your apikey> test
@@ -75,6 +76,7 @@ For running the tests you have to use your *OWN* OpenCage Geocoding API Key. Get
 See [Contribution Guidelines](https://github.com/OpenCageData/jopencage/blob/master/.github/CONTRIBUTING.md).
 
 ## Changelog
+
 See [CHANGELOG](https://github.com/OpenCageData/jopencage/blob/master/CHANGELOG.md).
 
 ## License
@@ -82,4 +84,5 @@ See [CHANGELOG](https://github.com/OpenCageData/jopencage/blob/master/CHANGELOG.
 Apache 2.0. Please see [LICENSE](jopencage/blob/master/LICENSE).
 
 ## History
+
 Until July 2023 this library was maintained by [Michael Oberwasserlechner](https://github.com/moberwasserlechner). At his request due to lack of time to work on it the libary was then taken over by OpenCage GmbH. Thanks, Michael!
